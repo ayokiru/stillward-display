@@ -1,0 +1,20 @@
+name: Idea
+description: Something you wish it did
+labels: ["idea"]
+body:
+  - type: textarea
+    id: pain
+    attributes:
+      label: What gets in your way today
+      description: The situation, not the solution. "Every time I alt-tab out of a game, the browser ends up on the wrong monitor."
+    validations:
+      required: true
+  - type: textarea
+    id: wish
+    attributes:
+      label: What you would like to happen
+  - type: textarea
+    id: now
+    attributes:
+      label: How you deal with it now
+      description: Another program, a script, doing it by hand.

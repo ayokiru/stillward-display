@@ -1,0 +1,50 @@
+name: Bug report
+description: Something did not happen, or happened wrong
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time. Issues here are **public**: leave out anything you would not post in the open.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected, and what happened instead.
+      placeholder: |
+        I launched a game with a preset. The chat window went to the right zone, the browser stayed on the main monitor.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: How to make it happen again
+      description: Steps, if you know them. "It happens after sleep" is useful too.
+  - type: dropdown
+    id: monitors
+    attributes:
+      label: Monitors
+      options:
+        - One
+        - Two
+        - Three or more
+    validations:
+      required: true
+  - type: input
+    id: windows
+    attributes:
+      label: Windows version
+      placeholder: Windows 11 24H2
+  - type: input
+    id: version
+    attributes:
+      label: Stillward Display version
+      description: The number at the bottom of the program's left-hand menu.
+  - type: textarea
+    id: report
+    attributes:
+      label: Diagnostic report
+      description: |
+        Stillward Display → Diagnostics → Run the diagnostic → Copy report, and paste it here.
+        Window titles are left out of it; monitor models and the names of programs in your layouts are in. Read it through before posting.
+      render: text
