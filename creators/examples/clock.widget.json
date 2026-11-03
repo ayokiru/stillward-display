@@ -1,0 +1,54 @@
+{
+  "$schema": "https://stillwarddisplay.com/schema/widget.json",
+  "version": 1,
+  "name": "Clock",
+  "size": [
+    344.0,
+    164.0
+  ],
+  "ground": {
+    "fill": "steel:4",
+    "fill2": "steel:5",
+    "opacity": 1.0,
+    "radius": 22.0,
+    "edge": true
+  },
+  "items": [
+    {
+      "at": [
+        18.0,
+        22.0
+      ],
+      "size": [
+        310.0,
+        84.0
+      ],
+      "colour": "ink",
+      "opacity": 1.0,
+      "radius": 0.0,
+      "type": "text",
+      "text": "{time}",
+      "font": 74.0,
+      "weight": 600,
+      "align": "start"
+    },
+    {
+      "at": [
+        22.0,
+        114.0
+      ],
+      "size": [
+        306.0,
+        26.0
+      ],
+      "colour": "ink-2",
+      "opacity": 1.0,
+      "radius": 0.0,
+      "type": "text",
+      "text": "{weekday}, {date.long}",
+      "font": 16.0,
+      "weight": 500,
+      "align": "start"
+    }
+  ]
+}

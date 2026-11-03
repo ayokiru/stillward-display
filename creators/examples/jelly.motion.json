@@ -1,0 +1,15 @@
+{
+  "$schema": "https://stillwarddisplay.com/schema/motion.json",
+  "version": 2,
+  "name": "Jelly",
+  "drag": {
+    "effect": {
+      "kind": "jelly",
+      "stiffness": 0.5,
+      "damping": 0.5,
+      "grid": 8
+    },
+    "duration_ms": 260,
+    "ease": "smooth"
+  }
+}

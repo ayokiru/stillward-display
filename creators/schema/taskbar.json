@@ -1,0 +1,444 @@
+{
+  "$defs": {
+    "barLayout": {
+      "additionalProperties": false,
+      "description": "A bar of islands: at most 5 of them, 12 modules in one and 24 in all. A module this version does not know is left out.",
+      "properties": {
+        "bounce": {
+          "description": "A program's icon bounces as it starts and when it asks for attention.",
+          "type": "boolean"
+        },
+        "edge": {
+          "description": "Which edge of the screen the bar lies along. Version 5.",
+          "enum": [
+            "bottom",
+            "top"
+          ],
+          "type": "string"
+        },
+        "finish": {
+          "description": "What the islands' ground is made of: glass, or liquid glass, clearer, its edge catching the light like a lens. Version 5.",
+          "enum": [
+            "glass",
+            "liquid"
+          ],
+          "type": "string"
+        },
+        "float": {
+          "default": 4.0,
+          "description": "How far the islands stand off the bar's edges. In px. Out of range is brought into it.",
+          "maximum": 12.0,
+          "minimum": 0.0,
+          "type": "integer"
+        },
+        "ground": {
+          "default": 85.0,
+          "description": "How solid each island's ground is. 0 for icons alone. In %. Out of range is brought into it.",
+          "maximum": 100.0,
+          "minimum": 0.0,
+          "type": "integer"
+        },
+        "isles": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "at": {
+                "description": "Where the island stands: from the bar's start, in its middle, or back from its end.",
+                "enum": [
+                  "start",
+                  "center",
+                  "end"
+                ],
+                "type": "string"
+              },
+              "modules": {
+                "items": {
+                  "properties": {
+                    "date": {
+                      "description": "Clock: with the date.",
+                      "type": "boolean"
+                    },
+                    "kind": {
+                      "description": "Start; the programs; a clock; what is playing; the volume; the desks; the preset; a folder; a rule; a space; the tray's icons (version 5); the network, the battery, the notifications, the corner that shows the desktop, the input language and the power corner with its menu of sleep, restart, shut down, lock and sign out (version 5); the island, the time in a pill that opens into what is playing and the volume (version 6); a switch that keeps the PC and its screen awake, bars that move with what plays and the control centre (version 7).",
+                      "enum": [
+                        "start",
+                        "apps",
+                        "clock",
+                        "media",
+                        "volume",
+                        "desks",
+                        "preset",
+                        "folder",
+                        "separator",
+                        "space",
+                        "tray",
+                        "network",
+                        "battery",
+                        "notifications",
+                        "desktop",
+                        "language",
+                        "power",
+                        "island",
+                        "awake",
+                        "sound",
+                        "control"
+                      ],
+                      "type": "string"
+                    },
+                    "place": {
+                      "description": "Folder: one of the person's own folders, by name. Never a path.",
+                      "enum": [
+                        "downloads",
+                        "documents",
+                        "pictures",
+                        "music",
+                        "videos",
+                        "desktop"
+                      ],
+                      "type": "string"
+                    },
+                    "seconds": {
+                      "description": "Clock: with seconds.",
+                      "type": "boolean"
+                    },
+                    "show": {
+                      "description": "Programs: pinned and open, pinned only, or open and not pinned.",
+                      "enum": [
+                        "all",
+                        "pinned",
+                        "open"
+                      ],
+                      "type": "string"
+                    },
+                    "wide": {
+                      "description": "Space: three icons wide instead of one.",
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "kind"
+                  ],
+                  "type": "object"
+                },
+                "maxItems": 12,
+                "type": "array"
+              },
+              "tint": {
+                "description": "The island's own ground colour, over the bar's.",
+                "enum": [
+                  "steel",
+                  "accent",
+                  "mine",
+                  "dark"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "modules"
+            ],
+            "type": "object"
+          },
+          "maxItems": 5,
+          "type": "array"
+        },
+        "magnify": {
+          "default": 100.0,
+          "description": "How big a program's icon grows under the pointer. 100 for none. In %. Out of range is brought into it.",
+          "maximum": 200.0,
+          "minimum": 100.0,
+          "type": "integer"
+        },
+        "pad": {
+          "default": 6.0,
+          "description": "The room inside an island round its modules. In px. Out of range is brought into it.",
+          "maximum": 16.0,
+          "minimum": 0.0,
+          "type": "integer"
+        },
+        "radius": {
+          "default": 8.0,
+          "description": "How round the islands' corners are. In px. Out of range is brought into it.",
+          "maximum": 24.0,
+          "minimum": 0.0,
+          "type": "integer"
+        },
+        "size": {
+          "default": 24.0,
+          "description": "How big the icons are. Never larger than the taskbar allows. In px. Out of range is brought into it.",
+          "maximum": 48.0,
+          "minimum": 16.0,
+          "type": "integer"
+        },
+        "spacing": {
+          "default": 70.0,
+          "description": "How far apart the modules stand, as a share of an icon. In %. Out of range is brought into it.",
+          "maximum": 100.0,
+          "minimum": 0.0,
+          "type": "integer"
+        },
+        "thick": {
+          "default": 48.0,
+          "description": "How thick the bar is. Small, medium and large are 40, 48 and 56. In px. Out of range is brought into it.",
+          "maximum": 72.0,
+          "minimum": 24.0,
+          "type": "integer"
+        },
+        "tint": {
+          "description": "The islands' ground colour.",
+          "enum": [
+            "steel",
+            "accent",
+            "mine",
+            "dark"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "isles"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "https://stillwarddisplay.com/schema/taskbar.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "A *.taskbar.json file, at most 16 KB. Every field is one of the program's own words or a number in its range; a field left out, or a word it does not know, leaves that setting as it is. A look that sets nothing is refused. Written as the oldest version that carries everything in it. Nothing in a look dresses Windows' own taskbar: what is seen is the program's own dock and bar, drawn while Windows' bars are hidden.",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "about": {
+      "maxLength": 1000,
+      "type": "string"
+    },
+    "bar": {
+      "additionalProperties": false,
+      "description": "The program's own taskbar, built from islands of modules, on every monitor, Windows' bars hidden while it is up: its tray, clock and the rest are modules of its own. Version 4.",
+      "properties": {
+        "main": {
+          "$ref": "#/$defs/barLayout"
+        },
+        "others": {
+          "$ref": "#/$defs/barLayout"
+        }
+      },
+      "required": [
+        "main"
+      ],
+      "type": "object"
+    },
+    "dock": {
+      "additionalProperties": false,
+      "description": "A dock of the program's own, the person's programs along one edge, shown with the look. A field left out takes its default. Version 3.",
+      "properties": {
+        "bounce": {
+          "description": "An icon bounces as its program starts and when it asks for attention.",
+          "type": "boolean"
+        },
+        "edge": {
+          "description": "Which edge the dock stands on.",
+          "enum": [
+            "bottom",
+            "top",
+            "left",
+            "right"
+          ],
+          "type": "string"
+        },
+        "finish": {
+          "description": "What the ground is made of: glass, or liquid glass, clearer, its edge catching the light like a lens. Version 5.",
+          "enum": [
+            "glass",
+            "liquid"
+          ],
+          "type": "string"
+        },
+        "gap": {
+          "default": 8.0,
+          "description": "How far the dock floats off the screen's edge. In px. Out of range is brought into it.",
+          "maximum": 24.0,
+          "minimum": 0.0,
+          "type": "integer"
+        },
+        "ground": {
+          "default": 72.0,
+          "description": "How solid the dock's ground is. 0 for icons alone. In %. Out of range is brought into it.",
+          "maximum": 100.0,
+          "minimum": 0.0,
+          "type": "integer"
+        },
+        "hide": {
+          "description": "Behind a maximized window, always until the pointer reaches the edge, or never, maximized windows making room for it.",
+          "enum": [
+            "maximized",
+            "always",
+            "never"
+          ],
+          "type": "string"
+        },
+        "magnify": {
+          "default": 160.0,
+          "description": "How big the icon under the pointer grows. 100 for none. In %. Out of range is brought into it.",
+          "maximum": 200.0,
+          "minimum": 100.0,
+          "type": "integer"
+        },
+        "radius": {
+          "default": 18.0,
+          "description": "How round the ground's corners are. In px. Out of range is brought into it.",
+          "maximum": 32.0,
+          "minimum": 0.0,
+          "type": "integer"
+        },
+        "running": {
+          "description": "Programs open without a pin have their icons too.",
+          "type": "boolean"
+        },
+        "size": {
+          "default": 48.0,
+          "description": "How big the icons are at rest. In px. Out of range is brought into it.",
+          "maximum": 96.0,
+          "minimum": 16.0,
+          "type": "integer"
+        },
+        "spacing": {
+          "default": 18.0,
+          "description": "How far apart the icons stand, as a share of an icon. In %. Out of range is brought into it.",
+          "maximum": 60.0,
+          "minimum": 0.0,
+          "type": "integer"
+        },
+        "system": {
+          "description": "Leave Windows' taskbar as it is, or hide it outright while the dock is on.",
+          "enum": [
+            "keep",
+            "hide"
+          ],
+          "type": "string"
+        },
+        "tint": {
+          "description": "The ground's colour: a shade of the theme's own dark or light, or of the steel, the Windows accent or the person's own colour.",
+          "enum": [
+            "steel",
+            "accent",
+            "mine",
+            "dark"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "maximized": {
+      "description": "Step aside for a maximized window.",
+      "type": "boolean"
+    },
+    "name": {
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    },
+    "native": {
+      "additionalProperties": false,
+      "description": "Windows' own settings for the bar, written as Settings would write them and put back when the look is undone.",
+      "properties": {
+        "accent": {
+          "description": "The accent colour on Start and the bar, in Windows' dark mode. Version 2.",
+          "type": "boolean"
+        },
+        "align": {
+          "description": "Where the buttons sit.",
+          "enum": [
+            "left",
+            "center"
+          ],
+          "type": "string"
+        },
+        "badges": {
+          "description": "Counts on buttons, such as unread messages. Version 2.",
+          "type": "boolean"
+        },
+        "buttons": {
+          "description": "Small buttons: always, never, or once the bar is full. Version 2.",
+          "enum": [
+            "small",
+            "normal",
+            "auto"
+          ],
+          "type": "string"
+        },
+        "combine": {
+          "description": "When a program's windows share one button.",
+          "enum": [
+            "always",
+            "full",
+            "never"
+          ],
+          "type": "string"
+        },
+        "desktop_button": {
+          "description": "The sliver at the far end that shows the desktop. Version 2.",
+          "type": "boolean"
+        },
+        "end_task": {
+          "description": "\"End task\" in a button's menu. Version 2.",
+          "type": "boolean"
+        },
+        "flashing": {
+          "description": "A button flashing when its program wants attention. Version 2.",
+          "type": "boolean"
+        },
+        "position": {
+          "description": "Which edge the bar is on.",
+          "enum": [
+            "bottom",
+            "top",
+            "left",
+            "right"
+          ],
+          "type": "string"
+        },
+        "search": {
+          "description": "What search looks like on the bar.",
+          "enum": [
+            "hidden",
+            "icon",
+            "box",
+            "label"
+          ],
+          "type": "string"
+        },
+        "seconds": {
+          "description": "Seconds in the clock.",
+          "type": "boolean"
+        },
+        "size": {
+          "description": "The bar's height.",
+          "enum": [
+            "normal",
+            "small"
+          ],
+          "type": "string"
+        },
+        "task_view": {
+          "description": "The Task view button.",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "version": {
+      "maximum": 7,
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "version",
+    "name"
+  ],
+  "title": "Stillward Display taskbar look",
+  "type": "object"
+}

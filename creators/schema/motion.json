@@ -1,0 +1,1452 @@
+{
+  "$defs": {
+    "ease": {
+      "default": "smooth",
+      "description": "The shape of the way through time: one of the program's curves by name, a cubic Bézier, or a spring.",
+      "oneOf": [
+        {
+          "enum": [
+            "smooth",
+            "snappy",
+            "spring",
+            "gentle"
+          ],
+          "type": "string"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "bezier": {
+              "description": "x1, y1, x2, y2 as in CSS. x is held to 0–1 so time never runs backwards; y may overshoot, from -1 to 2.",
+              "maxItems": 4,
+              "minItems": 4,
+              "prefixItems": [
+                {
+                  "maximum": 1,
+                  "minimum": 0,
+                  "type": "number"
+                },
+                {
+                  "maximum": 2,
+                  "minimum": -1,
+                  "type": "number"
+                },
+                {
+                  "maximum": 1,
+                  "minimum": 0,
+                  "type": "number"
+                },
+                {
+                  "maximum": 2,
+                  "minimum": -1,
+                  "type": "number"
+                }
+              ],
+              "type": "array"
+            }
+          },
+          "required": [
+            "bezier"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "spring": {
+              "additionalProperties": false,
+              "properties": {
+                "bounce": {
+                  "default": 0,
+                  "description": "0 settles without passing the mark; 0.3 is lively. Its length is the motion's duration_ms.",
+                  "maximum": 0.6,
+                  "minimum": 0,
+                  "type": "number"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "required": [
+            "spring"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "effect-blinds": {
+      "additionalProperties": false,
+      "description": "The window as strips that leave one after another, the one nearest the taskbar first.",
+      "properties": {
+        "kind": {
+          "const": "blinds"
+        },
+        "slices": {
+          "default": 12.0,
+          "description": "How many strips. Brought into 4.0–32.0 when outside it.",
+          "maximum": 32.0,
+          "minimum": 4.0,
+          "type": "integer"
+        },
+        "stagger": {
+          "default": 0.5,
+          "description": "How much of the time the strips spend waiting for one another. Brought into 0.0–0.9 when outside it.",
+          "maximum": 0.9,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        "turn": {
+          "default": 0.0,
+          "description": "How far each strip turns edge-on as it leaves, like a slat. Version 3. Brought into 0.0–1.0 when outside it.",
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "type": "object"
+    },
+    "effect-card": {
+      "additionalProperties": false,
+      "description": "A dragged window carried as a card: leaning with its speed, banking into its way, lifted, drawn out along its speed.",
+      "properties": {
+        "bank": {
+          "default": 0.0,
+          "description": "How far it turns in depth into the way it is carried. Brought into 0.0–1.0 when outside it.",
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        "kind": {
+          "const": "card"
+        },
+        "lean": {
+          "default": 0.0,
+          "description": "How far it leans with its speed across, about where it is held. Brought into 0.0–1.0 when outside it.",
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        "lift": {
+          "default": 0.0,
+          "description": "How far it lifts off the desk while held. Brought into 0.0–1.0 when outside it.",
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        "stretch": {
+          "default": 0.0,
+          "description": "How far it is drawn out along its speed, its area kept. Brought into 0.0–1.0 when outside it.",
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "type": "object"
+    },
+    "effect-flip": {
+      "additionalProperties": false,
+      "description": "The window tips back as it goes, the side away from the taskbar first, like a card laid down.",
+      "properties": {
+        "fade": {
+          "default": 0.4,
+          "description": "How transparent it is by the end. Brought into 0.0–1.0 when outside it.",
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        "kind": {
+          "const": "flip"
+        },
+        "tilt": {
+          "default": 0.7,
+          "description": "How far it tips back: 1 is nearly flat. Brought into 0.0–1.0 when outside it.",
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "type": "object"
+    },
+    "effect-fold": {
+      "additionalProperties": false,
+      "description": "The window folds up like a fan, then goes into the target.",
+      "properties": {
+        "fade": {
+          "default": 0.3,
+          "description": "How transparent it is by the end. Brought into 0.0–1.0 when outside it.",
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        "kind": {
+          "const": "fold"
+        },
+        "panels": {
+          "default": 4.0,
+          "description": "How many panels it folds into. Brought into 2.0–8.0 when outside it.",
+          "maximum": 8.0,
+          "minimum": 2.0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "type": "object"
+    },
+    "effect-funnel": {
+      "additionalProperties": false,
+      "description": "The window pours into the target through a narrowing neck, the part nearest the taskbar first.",
+      "properties": {
+        "bend": {
+          "default": 0.6,
+          "description": "How far ahead the part nearest the taskbar runs. Brought into 0.0–1.0 when outside it.",
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        "fade": {
+          "default": 0.3,
+          "description": "How transparent it is by the end. Brought into 0.0–1.0 when outside it.",
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        "kind": {
+          "const": "funnel"
+        },
+        "slices": {
+          "default": 48.0,
+          "description": "The most strips it is cut into where pictures cannot bend. Brought into 4.0–96.0 when outside it.",
+          "maximum": 96.0,
+          "minimum": 4.0,
+          "type": "integer"
+        },
+        "squeeze": {
+          "default": 0.5,
+          "description": "How much sooner the width gives way than the height. Brought into 0.0–1.0 when outside it.",
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "type": "object"
+    },
+    "effect-glide": {
+      "additionalProperties": false,
+      "description": "The windows a layout places fly to their places: at once or one after another, straight or along an arc.",
+      "properties": {
+        "arc": {
+          "default": 0.0,
+          "description": "How far each bows from the straight line: a quarter of its way at most. Brought into 0.0–1.0 when outside it.",
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        "bank": {
+          "default": 0.0,
+          "description": "How far each turns in depth toward where it is going. Version 3. Brought into 0.0–1.0 when outside it.",
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        "dip": {
+          "default": 0.0,
+          "description": "How far each sinks back and dims on its way. Version 3. Brought into 0.0–1.0 when outside it.",
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        "kind": {
+          "const": "glide"
+        },
+        "lift": {
+          "default": 0.0,
+          "description": "How far each rises toward the eye on its way. Version 3. Brought into 0.0–1.0 when outside it.",
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        "order": {
+          "default": "stack",
+          "description": "Which set off first: as stacked, as text is read, or from the middle out. Version 3.",
+          "enum": [
+            "stack",
+            "reading",
+            "centre"
+          ],
+          "type": "string"
+        },
+        "stagger": {
+          "default": 0.0,
+          "description": "How much of the flight the windows spend setting off one after another. Brought into 0.0–0.9 when outside it.",
+          "maximum": 0.9,
+          "minimum": 0.0,
+          "type": "number"
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "type": "object"
+    },
+    "effect-hourglass": {
+      "additionalProperties": false,
+      "description": "Runs out of one screen through a narrow neck between the two and gathers again on the other, like sand in an hourglass.",
+      "properties": {
+        "bend": {
+          "default": 0.7,
+          "description": "How far ahead the part nearest the neck runs. Brought into 0.0–1.0 when outside it.",
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        "fade": {
+          "default": 0.3,
+          "description": "How transparent it is in the neck. Brought into 0.0–1.0 when outside it.",
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        "kind": {
+          "const": "hourglass"
+        },
+        "slices": {
+          "default": 48.0,
+          "description": "The most strips it is cut into where pictures cannot bend. Brought into 4.0–96.0 when outside it.",
+          "maximum": 96.0,
+          "minimum": 4.0,
+          "type": "integer"
+        },
+        "squeeze": {
+          "default": 0.6,
+          "description": "How much sooner the width gives way than the height. Brought into 0.0–1.0 when outside it.",
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        "sway": {
+          "default": 0.4,
+          "description": "How far the stream swings to the side on its way. Brought into 0.0–1.0 when outside it.",
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        "waist": {
+          "default": 0.5,
+          "description": "How thin it pinches on its way to the neck. Brought into 0.0–1.0 when outside it.",
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "type": "object"
+    },
+    "effect-jelly": {
+      "additionalProperties": false,
+      "description": "A dragged window that bends and settles like jelly.",
+      "properties": {
+        "damping": {
+          "default": 0.5,
+          "description": "How quickly it settles. Brought into 0.05–1.0 when outside it.",
+          "maximum": 1.0,
+          "minimum": 0.05,
+          "type": "number"
+        },
+        "grid": {
+          "default": 8.0,
+          "description": "Points across and down the jelly is moved by. Brought into 4.0–16.0 when outside it.",
+          "maximum": 16.0,
+          "minimum": 4.0,
+          "type": "integer"
+        },
+        "kind": {
+          "const": "jelly"
+        },
+        "stiffness": {
+          "default": 0.5,
+          "description": "How firm it is. Brought into 0.05–1.0 when outside it.",
+          "maximum": 1.0,
+          "minimum": 0.05,
+          "type": "number"
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "type": "object"
+    },
+    "effect-lift": {
+      "additionalProperties": false,
+      "description": "A dragged window lifts off the desk while held: a little larger, the desk showing through.",
+      "properties": {
+        "amount": {
+          "default": 0.5,
+          "description": "How much it lifts. Brought into 0.0–1.0 when outside it.",
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        "kind": {
+          "const": "lift"
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "type": "object"
+    },
+    "effect-mesh": {
+      "additionalProperties": false,
+      "description": "The window as a grid whose every point the author places at each key moment. See the mesh section.",
+      "properties": {
+        "cols": {
+          "default": 4.0,
+          "description": "Cells across the way the window travels. Brought into 1.0–8.0 when outside it.",
+          "maximum": 8.0,
+          "minimum": 1.0,
+          "type": "integer"
+        },
+        "keys": {
+          "description": "Key moments. The first is always the window as it stands; a mesh that stops short of t 1 holds its last shape and fades.",
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "opacity": {
+                "default": 1,
+                "description": "How solid the whole grid is.",
+                "maximum": 1,
+                "minimum": 0,
+                "type": "number"
+              },
+              "points": {
+                "description": "(cols + 1) × (rows + 1) points, row by row along the way, each row across. A key with any other number is refused.",
+                "items": {
+                  "maxItems": 3,
+                  "minItems": 3,
+                  "prefixItems": [
+                    {
+                      "description": "toward: how far along its way from its place on the window (0) to the same place on the target (1).",
+                      "maximum": 1.5,
+                      "minimum": -0.5,
+                      "type": "number"
+                    },
+                    {
+                      "description": "across: how far off its way, as a share of the window's width where it is now.",
+                      "maximum": 1.5,
+                      "minimum": -1.5,
+                      "type": "number"
+                    },
+                    {
+                      "description": "along: how far off its way, as a share of the window's height where it is now.",
+                      "maximum": 1.5,
+                      "minimum": -1.5,
+                      "type": "number"
+                    }
+                  ],
+                  "type": "array"
+                },
+                "type": "array"
+              },
+              "t": {
+                "description": "When, as a share of the time.",
+                "maximum": 1,
+                "minimum": 0,
+                "type": "number"
+              }
+            },
+            "required": [
+              "t",
+              "points"
+            ],
+            "type": "object"
+          },
+          "maxItems": 16,
+          "type": "array"
+        },
+        "kind": {
+          "const": "mesh"
+        },
+        "rows": {
+          "default": 4.0,
+          "description": "Cells along it, from the side away from the taskbar to the side nearest it. Brought into 1.0–8.0 when outside it.",
+          "maximum": 8.0,
+          "minimum": 1.0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "type": "object"
+    },
+    "effect-none": {
+      "additionalProperties": false,
+      "description": "No animation at all.",
+      "properties": {
+        "kind": {
+          "const": "none"
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "type": "object"
+    },
+    "effect-pour": {
+      "additionalProperties": false,
+      "description": "A funnel that sways and pinches on its way.",
+      "properties": {
+        "bend": {
+          "default": 0.7,
+          "description": "How far ahead the part nearest the taskbar runs. Brought into 0.0–1.0 when outside it.",
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        "fade": {
+          "default": 0.3,
+          "description": "How transparent it is by the end. Brought into 0.0–1.0 when outside it.",
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        "kind": {
+          "const": "pour"
+        },
+        "slices": {
+          "default": 48.0,
+          "description": "The most strips it is cut into where pictures cannot bend. Brought into 4.0–96.0 when outside it.",
+          "maximum": 96.0,
+          "minimum": 4.0,
+          "type": "integer"
+        },
+        "squeeze": {
+          "default": 0.6,
+          "description": "How much sooner the width gives way than the height. Brought into 0.0–1.0 when outside it.",
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        "sway": {
+          "default": 0.4,
+          "description": "How far the stream swings to the side on its way. Brought into 0.0–1.0 when outside it.",
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        "waist": {
+          "default": 0.5,
+          "description": "How thin it pinches in the middle of the way. Brought into 0.0–1.0 when outside it.",
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "type": "object"
+    },
+    "effect-shatter": {
+      "additionalProperties": false,
+      "description": "The window breaks into a grid of pieces that fly into the target one after another, turning as they go.",
+      "properties": {
+        "kind": {
+          "const": "shatter"
+        },
+        "order": {
+          "default": "rows",
+          "description": "Which pieces leave first: the row nearest the taskbar, a wave from its corner, or the middle outward. Version 3.",
+          "enum": [
+            "rows",
+            "diagonal",
+            "centre"
+          ],
+          "type": "string"
+        },
+        "pieces": {
+          "default": 5.0,
+          "description": "Pieces across and down: a grid of that many squared. Brought into 3.0–8.0 when outside it.",
+          "maximum": 8.0,
+          "minimum": 3.0,
+          "type": "integer"
+        },
+        "scatter": {
+          "default": 0.5,
+          "description": "How far the pieces fly apart and how much they turn. Brought into 0.0–1.0 when outside it.",
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "type": "object"
+    },
+    "effect-spring": {
+      "additionalProperties": false,
+      "description": "The edges that moved run on a little and spring back: those a resize pulled, a window filling, leaving or snapping to its screen recoiling off the screen's edges, or one carried to another screen running on the way it went.",
+      "properties": {
+        "amount": {
+          "default": 0.5,
+          "description": "How far the edges run on. Brought into 0.0–1.0 when outside it.",
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        "kind": {
+          "const": "spring"
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "type": "object"
+    },
+    "effect-squash": {
+      "additionalProperties": false,
+      "description": "The window squashes and stretches on its bottom edge, as a thing set down with some weight.",
+      "properties": {
+        "amount": {
+          "default": 0.5,
+          "description": "How much it moves. Brought into 0.0–1.0 when outside it.",
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        "kind": {
+          "const": "squash"
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "type": "object"
+    },
+    "effect-sweep": {
+      "additionalProperties": false,
+      "description": "One swell crosses the window once, from the edge it nods about to the other.",
+      "properties": {
+        "amount": {
+          "default": 0.5,
+          "description": "How much the passing swell widens it. Brought into 0.0–1.0 when outside it.",
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        "kind": {
+          "const": "sweep"
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "type": "object"
+    },
+    "effect-swell": {
+      "additionalProperties": false,
+      "description": "The window, where it now stands, takes a breath: a little larger and back.",
+      "properties": {
+        "amount": {
+          "default": 0.5,
+          "description": "How much it moves: 1 is as much as reads as a settle and not a jump. Brought into 0.0–1.0 when outside it.",
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        "kind": {
+          "const": "swell"
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "type": "object"
+    },
+    "effect-tilt": {
+      "additionalProperties": false,
+      "description": "A dragged window leans with the speed it is carried at, and swings straight when let go.",
+      "properties": {
+        "amount": {
+          "default": 0.5,
+          "description": "How far it leans. Brought into 0.0–1.0 when outside it.",
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        "kind": {
+          "const": "tilt"
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "type": "object"
+    },
+    "effect-tip": {
+      "additionalProperties": false,
+      "description": "The window nods in depth about one edge and settles: the bottom, a snapped window's screen side, or the edge opposite the one pulled.",
+      "properties": {
+        "amount": {
+          "default": 0.5,
+          "description": "How far it nods: above 0 the far edge leans away, below it toward. Brought into -1.0–1.0 when outside it.",
+          "maximum": 1.0,
+          "minimum": -1.0,
+          "type": "number"
+        },
+        "kind": {
+          "const": "tip"
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "type": "object"
+    },
+    "effect-transform": {
+      "additionalProperties": false,
+      "description": "The whole window as one picture moving toward the target, growing or shrinking and fading through up to eight key moments.",
+      "properties": {
+        "keys": {
+          "description": "Key moments of the picture's way. One at t 0 (the window) and one at t 1 (the target) are put in when left out.",
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "bow": {
+                "default": 0,
+                "description": "How far it is off the straight way across it, in the window's width. Version 3.",
+                "maximum": 0.5,
+                "minimum": -0.5,
+                "type": "number"
+              },
+              "opacity": {
+                "default": 1,
+                "description": "How solid it is.",
+                "maximum": 1,
+                "minimum": 0,
+                "type": "number"
+              },
+              "rise": {
+                "default": 0,
+                "description": "How far it is off the straight way away from the taskbar, in the window's height. Version 3.",
+                "maximum": 0.5,
+                "minimum": -0.5,
+                "type": "number"
+              },
+              "scale": {
+                "default": 1,
+                "description": "Its size against the window's.",
+                "maximum": 1.5,
+                "minimum": 0.02,
+                "type": "number"
+              },
+              "spin": {
+                "default": 0,
+                "description": "How far it has turned in its own plane, in whole turns. Version 3.",
+                "maximum": 2,
+                "minimum": -2,
+                "type": "number"
+              },
+              "t": {
+                "description": "When, as a share of the time.",
+                "maximum": 1,
+                "minimum": 0,
+                "type": "number"
+              },
+              "tilt": {
+                "default": 0,
+                "description": "How far it leans back in depth about its middle: above 0 the side away from the taskbar goes away. Version 3.",
+                "maximum": 1,
+                "minimum": -1,
+                "type": "number"
+              },
+              "toward": {
+                "description": "How far the picture's middle is from the window's (0) to the target's (1).",
+                "maximum": 1,
+                "minimum": 0,
+                "type": "number"
+              }
+            },
+            "type": "object"
+          },
+          "maxItems": 8,
+          "type": "array"
+        },
+        "kind": {
+          "const": "transform"
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "type": "object"
+    },
+    "effect-windows": {
+      "additionalProperties": false,
+      "description": "Windows' own animation, left alone.",
+      "properties": {
+        "kind": {
+          "const": "windows"
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "type": "object"
+    },
+    "effect-wobble": {
+      "additionalProperties": false,
+      "description": "A ripple runs through the window and dies away.",
+      "properties": {
+        "amount": {
+          "default": 0.5,
+          "description": "How much it moves. Brought into 0.0–1.0 when outside it.",
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        "kind": {
+          "const": "wobble"
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "https://stillwarddisplay.com/schema/motion.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "A *.motion.json file, at most 64 KB. Every number outside its range is brought into it; an effect, a curve or a version the program does not know is refused with its reason.",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "about": {
+      "description": "A few words for its Workshop page. Text only.",
+      "maxLength": 1000,
+      "type": "string"
+    },
+    "arrange": {
+      "additionalProperties": false,
+      "description": "Put in place by a layout, a preset or tidying.",
+      "properties": {
+        "duration_ms": {
+          "default": 260,
+          "description": "How long it takes, in milliseconds.",
+          "maximum": 1500,
+          "minimum": 80,
+          "type": "integer"
+        },
+        "ease": {
+          "$ref": "#/$defs/ease"
+        },
+        "effect": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/effect-windows"
+            },
+            {
+              "$ref": "#/$defs/effect-none"
+            },
+            {
+              "$ref": "#/$defs/effect-glide"
+            }
+          ]
+        }
+      },
+      "required": [
+        "effect"
+      ],
+      "type": "object"
+    },
+    "close": {
+      "additionalProperties": false,
+      "description": "A window closed with its close button, going into its own middle.",
+      "properties": {
+        "duration_ms": {
+          "default": 260,
+          "description": "How long it takes, in milliseconds.",
+          "maximum": 1500,
+          "minimum": 80,
+          "type": "integer"
+        },
+        "ease": {
+          "$ref": "#/$defs/ease"
+        },
+        "effect": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/effect-windows"
+            },
+            {
+              "$ref": "#/$defs/effect-none"
+            },
+            {
+              "$ref": "#/$defs/effect-transform"
+            },
+            {
+              "$ref": "#/$defs/effect-blinds"
+            },
+            {
+              "$ref": "#/$defs/effect-flip"
+            },
+            {
+              "$ref": "#/$defs/effect-fold"
+            },
+            {
+              "$ref": "#/$defs/effect-shatter"
+            },
+            {
+              "$ref": "#/$defs/effect-mesh"
+            }
+          ]
+        }
+      },
+      "required": [
+        "effect"
+      ],
+      "type": "object"
+    },
+    "drag": {
+      "additionalProperties": false,
+      "description": "While a window is carried by its title bar.",
+      "properties": {
+        "duration_ms": {
+          "default": 260,
+          "description": "How long it takes, in milliseconds.",
+          "maximum": 1500,
+          "minimum": 80,
+          "type": "integer"
+        },
+        "ease": {
+          "$ref": "#/$defs/ease"
+        },
+        "effect": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/effect-windows"
+            },
+            {
+              "$ref": "#/$defs/effect-none"
+            },
+            {
+              "$ref": "#/$defs/effect-jelly"
+            },
+            {
+              "$ref": "#/$defs/effect-tilt"
+            },
+            {
+              "$ref": "#/$defs/effect-lift"
+            },
+            {
+              "$ref": "#/$defs/effect-card"
+            }
+          ]
+        }
+      },
+      "required": [
+        "effect"
+      ],
+      "type": "object"
+    },
+    "maximize": {
+      "additionalProperties": false,
+      "description": "Filling the screen.",
+      "properties": {
+        "duration_ms": {
+          "default": 260,
+          "description": "How long it takes, in milliseconds.",
+          "maximum": 1500,
+          "minimum": 80,
+          "type": "integer"
+        },
+        "ease": {
+          "$ref": "#/$defs/ease"
+        },
+        "effect": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/effect-windows"
+            },
+            {
+              "$ref": "#/$defs/effect-none"
+            },
+            {
+              "$ref": "#/$defs/effect-mesh"
+            },
+            {
+              "$ref": "#/$defs/effect-swell"
+            },
+            {
+              "$ref": "#/$defs/effect-squash"
+            },
+            {
+              "$ref": "#/$defs/effect-wobble"
+            },
+            {
+              "$ref": "#/$defs/effect-spring"
+            },
+            {
+              "$ref": "#/$defs/effect-tip"
+            },
+            {
+              "$ref": "#/$defs/effect-sweep"
+            }
+          ]
+        }
+      },
+      "required": [
+        "effect"
+      ],
+      "type": "object"
+    },
+    "minimize": {
+      "additionalProperties": false,
+      "description": "A window going to its taskbar button.",
+      "properties": {
+        "duration_ms": {
+          "default": 260,
+          "description": "How long it takes, in milliseconds.",
+          "maximum": 1500,
+          "minimum": 80,
+          "type": "integer"
+        },
+        "ease": {
+          "$ref": "#/$defs/ease"
+        },
+        "effect": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/effect-windows"
+            },
+            {
+              "$ref": "#/$defs/effect-none"
+            },
+            {
+              "$ref": "#/$defs/effect-transform"
+            },
+            {
+              "$ref": "#/$defs/effect-funnel"
+            },
+            {
+              "$ref": "#/$defs/effect-pour"
+            },
+            {
+              "$ref": "#/$defs/effect-blinds"
+            },
+            {
+              "$ref": "#/$defs/effect-flip"
+            },
+            {
+              "$ref": "#/$defs/effect-fold"
+            },
+            {
+              "$ref": "#/$defs/effect-shatter"
+            },
+            {
+              "$ref": "#/$defs/effect-mesh"
+            }
+          ]
+        }
+      },
+      "required": [
+        "effect"
+      ],
+      "type": "object"
+    },
+    "monitor": {
+      "additionalProperties": false,
+      "description": "Carried to another screen with Win+Shift and an arrow.",
+      "properties": {
+        "duration_ms": {
+          "default": 260,
+          "description": "How long it takes, in milliseconds.",
+          "maximum": 1500,
+          "minimum": 80,
+          "type": "integer"
+        },
+        "ease": {
+          "$ref": "#/$defs/ease"
+        },
+        "effect": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/effect-windows"
+            },
+            {
+              "$ref": "#/$defs/effect-none"
+            },
+            {
+              "$ref": "#/$defs/effect-hourglass"
+            },
+            {
+              "$ref": "#/$defs/effect-mesh"
+            },
+            {
+              "$ref": "#/$defs/effect-swell"
+            },
+            {
+              "$ref": "#/$defs/effect-squash"
+            },
+            {
+              "$ref": "#/$defs/effect-wobble"
+            },
+            {
+              "$ref": "#/$defs/effect-spring"
+            },
+            {
+              "$ref": "#/$defs/effect-tip"
+            },
+            {
+              "$ref": "#/$defs/effect-sweep"
+            }
+          ]
+        }
+      },
+      "required": [
+        "effect"
+      ],
+      "type": "object"
+    },
+    "name": {
+      "description": "What it is called in the library and on the Workshop.",
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    },
+    "open": {
+      "additionalProperties": false,
+      "description": "A window appearing.",
+      "properties": {
+        "duration_ms": {
+          "default": 260,
+          "description": "How long it takes, in milliseconds.",
+          "maximum": 1500,
+          "minimum": 80,
+          "type": "integer"
+        },
+        "ease": {
+          "$ref": "#/$defs/ease"
+        },
+        "effect": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/effect-windows"
+            },
+            {
+              "$ref": "#/$defs/effect-none"
+            },
+            {
+              "$ref": "#/$defs/effect-mesh"
+            },
+            {
+              "$ref": "#/$defs/effect-swell"
+            },
+            {
+              "$ref": "#/$defs/effect-squash"
+            },
+            {
+              "$ref": "#/$defs/effect-wobble"
+            },
+            {
+              "$ref": "#/$defs/effect-tip"
+            },
+            {
+              "$ref": "#/$defs/effect-sweep"
+            }
+          ]
+        }
+      },
+      "required": [
+        "effect"
+      ],
+      "type": "object"
+    },
+    "resize": {
+      "additionalProperties": false,
+      "description": "Let go of after an edge or a corner was pulled to a new size.",
+      "properties": {
+        "duration_ms": {
+          "default": 260,
+          "description": "How long it takes, in milliseconds.",
+          "maximum": 1500,
+          "minimum": 80,
+          "type": "integer"
+        },
+        "ease": {
+          "$ref": "#/$defs/ease"
+        },
+        "effect": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/effect-windows"
+            },
+            {
+              "$ref": "#/$defs/effect-none"
+            },
+            {
+              "$ref": "#/$defs/effect-mesh"
+            },
+            {
+              "$ref": "#/$defs/effect-swell"
+            },
+            {
+              "$ref": "#/$defs/effect-squash"
+            },
+            {
+              "$ref": "#/$defs/effect-wobble"
+            },
+            {
+              "$ref": "#/$defs/effect-spring"
+            },
+            {
+              "$ref": "#/$defs/effect-tip"
+            },
+            {
+              "$ref": "#/$defs/effect-sweep"
+            }
+          ]
+        }
+      },
+      "required": [
+        "effect"
+      ],
+      "type": "object"
+    },
+    "restore": {
+      "additionalProperties": false,
+      "description": "Coming back from it. Left out, the way down is played backwards.",
+      "properties": {
+        "duration_ms": {
+          "default": 260,
+          "description": "How long it takes, in milliseconds.",
+          "maximum": 1500,
+          "minimum": 80,
+          "type": "integer"
+        },
+        "ease": {
+          "$ref": "#/$defs/ease"
+        },
+        "effect": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/effect-windows"
+            },
+            {
+              "$ref": "#/$defs/effect-none"
+            },
+            {
+              "$ref": "#/$defs/effect-transform"
+            },
+            {
+              "$ref": "#/$defs/effect-funnel"
+            },
+            {
+              "$ref": "#/$defs/effect-pour"
+            },
+            {
+              "$ref": "#/$defs/effect-blinds"
+            },
+            {
+              "$ref": "#/$defs/effect-flip"
+            },
+            {
+              "$ref": "#/$defs/effect-fold"
+            },
+            {
+              "$ref": "#/$defs/effect-shatter"
+            },
+            {
+              "$ref": "#/$defs/effect-mesh"
+            }
+          ]
+        }
+      },
+      "required": [
+        "effect"
+      ],
+      "type": "object"
+    },
+    "snap": {
+      "additionalProperties": false,
+      "description": "Pulled against an edge or into a corner.",
+      "properties": {
+        "duration_ms": {
+          "default": 260,
+          "description": "How long it takes, in milliseconds.",
+          "maximum": 1500,
+          "minimum": 80,
+          "type": "integer"
+        },
+        "ease": {
+          "$ref": "#/$defs/ease"
+        },
+        "effect": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/effect-windows"
+            },
+            {
+              "$ref": "#/$defs/effect-none"
+            },
+            {
+              "$ref": "#/$defs/effect-mesh"
+            },
+            {
+              "$ref": "#/$defs/effect-swell"
+            },
+            {
+              "$ref": "#/$defs/effect-squash"
+            },
+            {
+              "$ref": "#/$defs/effect-wobble"
+            },
+            {
+              "$ref": "#/$defs/effect-spring"
+            },
+            {
+              "$ref": "#/$defs/effect-tip"
+            },
+            {
+              "$ref": "#/$defs/effect-sweep"
+            }
+          ]
+        }
+      },
+      "required": [
+        "effect"
+      ],
+      "type": "object"
+    },
+    "switch": {
+      "additionalProperties": false,
+      "description": "Brought to the front.",
+      "properties": {
+        "duration_ms": {
+          "default": 260,
+          "description": "How long it takes, in milliseconds.",
+          "maximum": 1500,
+          "minimum": 80,
+          "type": "integer"
+        },
+        "ease": {
+          "$ref": "#/$defs/ease"
+        },
+        "effect": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/effect-windows"
+            },
+            {
+              "$ref": "#/$defs/effect-none"
+            },
+            {
+              "$ref": "#/$defs/effect-mesh"
+            },
+            {
+              "$ref": "#/$defs/effect-swell"
+            },
+            {
+              "$ref": "#/$defs/effect-squash"
+            },
+            {
+              "$ref": "#/$defs/effect-wobble"
+            },
+            {
+              "$ref": "#/$defs/effect-tip"
+            },
+            {
+              "$ref": "#/$defs/effect-sweep"
+            }
+          ]
+        }
+      },
+      "required": [
+        "effect"
+      ],
+      "type": "object"
+    },
+    "unmaximize": {
+      "additionalProperties": false,
+      "description": "Coming back from full screen. Left out, the maximize is played backwards.",
+      "properties": {
+        "duration_ms": {
+          "default": 260,
+          "description": "How long it takes, in milliseconds.",
+          "maximum": 1500,
+          "minimum": 80,
+          "type": "integer"
+        },
+        "ease": {
+          "$ref": "#/$defs/ease"
+        },
+        "effect": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/effect-windows"
+            },
+            {
+              "$ref": "#/$defs/effect-none"
+            },
+            {
+              "$ref": "#/$defs/effect-mesh"
+            },
+            {
+              "$ref": "#/$defs/effect-swell"
+            },
+            {
+              "$ref": "#/$defs/effect-squash"
+            },
+            {
+              "$ref": "#/$defs/effect-wobble"
+            },
+            {
+              "$ref": "#/$defs/effect-spring"
+            },
+            {
+              "$ref": "#/$defs/effect-tip"
+            },
+            {
+              "$ref": "#/$defs/effect-sweep"
+            }
+          ]
+        }
+      },
+      "required": [
+        "effect"
+      ],
+      "type": "object"
+    },
+    "version": {
+      "description": "The format's version. A file from a newer one than 5 is refused rather than half understood.",
+      "maximum": 5,
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "version",
+    "name"
+  ],
+  "title": "Stillward Display window animation style",
+  "type": "object"
+}

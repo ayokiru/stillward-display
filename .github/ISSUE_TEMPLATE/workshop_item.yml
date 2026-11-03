@@ -1,0 +1,39 @@
+name: Workshop item
+description: A style, look, pointer set, widget, icon set, activity or setup that does not work as it should
+labels: ["workshop"]
+body:
+  - type: input
+    id: link
+    attributes:
+      label: The item
+      description: Its Steam Workshop link, or the file name if it is a file.
+      placeholder: https://steamcommunity.com/sharedfiles/filedetails/?id=...
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind
+      options:
+        - Animation style
+        - Taskbar look
+        - Pointer set
+        - Widget
+        - Icon set
+        - Island activity
+        - Setup
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happens
+      description: What you expected from its picture, and what you see instead.
+    validations:
+      required: true
+  - type: textarea
+    id: report
+    attributes:
+      label: Diagnostic report
+      description: Stillward Display → Diagnostics → Run the diagnostic → Copy report. Read it through before posting.
+      render: text

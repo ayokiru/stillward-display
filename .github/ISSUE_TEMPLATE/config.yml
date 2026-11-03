@@ -1,8 +1,11 @@
 blank_issues_enabled: false
 contact_links:
-  - name: Steam discussions
-    url: https://steamcommunity.com/app/5248400/discussions/
-    about: Questions, setups and talk with other players.
+  - name: An idea
+    url: https://github.com/ayokiru/stillward-display/discussions/categories/ideas
+    about: Something you wish it did. Ideas live in Discussions, where others can add to them.
+  - name: A question
+    url: https://github.com/ayokiru/stillward-display/discussions/categories/q-a
+    about: How to do something, or whether it can.
   - name: Private support
-    url: https://stillwarddisplay.com
+    url: https://stillwarddisplay.com/feedback
     about: Rather not post your report in public? Write to support@stillwarddisplay.com.

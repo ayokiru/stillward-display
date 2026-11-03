@@ -1,0 +1,749 @@
+{
+  "$defs": {
+    "role": {
+      "properties": {
+        "built": {
+          "type": "string"
+        },
+        "file": {
+          "description": "Its own file in the folder, named for the role: Hand.cur, Wait.ani.",
+          "pattern": "^[A-Za-z]+\\.([cC][uU][rR]|[aA][nN][iI]|[iI][cC][oO]|[sS][vV][gG])$",
+          "type": "string"
+        },
+        "from": {
+          "enum": [
+            "generated",
+            "drawn",
+            "kept"
+          ]
+        },
+        "hotspot": {
+          "items": {
+            "maximum": 48.0,
+            "minimum": -16.0,
+            "type": "number"
+          },
+          "maxItems": 2,
+          "minItems": 2,
+          "type": "array"
+        },
+        "motion": {
+          "properties": {
+            "amount": {
+              "description": "Pulse: 0.03 to 0.3 of its size. Sway: 3 to 30 degrees. Blink: 0.2 to 1, how far it fades. Run: 0.5 to 6, a dash's length.",
+              "type": "number"
+            },
+            "kind": {
+              "enum": [
+                "none",
+                "spin",
+                "pulse",
+                "sway",
+                "blink",
+                "run"
+              ]
+            },
+            "ms": {
+              "maximum": 4000,
+              "minimum": 400,
+              "type": "integer"
+            },
+            "part": {
+              "type": "string"
+            },
+            "pivot": {
+              "items": {
+                "maximum": 48.0,
+                "minimum": -16.0,
+                "type": "number"
+              },
+              "maxItems": 2,
+              "minItems": 2,
+              "type": "array"
+            },
+            "reverse": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "kind"
+          ],
+          "type": "object"
+        },
+        "shapes": {
+          "items": {
+            "$ref": "#/$defs/shape"
+          },
+          "maxItems": 48,
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "shape": {
+      "oneOf": [
+        {
+          "properties": {
+            "cap": {
+              "enum": [
+                "round",
+                "butt",
+                "square"
+              ]
+            },
+            "d": {
+              "items": {
+                "description": "A step of a path, absolute: [\"M\",x,y], [\"L\",x,y], [\"C\",x1,y1,x2,y2,x,y], [\"Q\",x1,y1,x,y] or [\"Z\"].",
+                "items": {
+                  "maximum": 48.0,
+                  "minimum": -16.0,
+                  "type": "number"
+                },
+                "maxItems": 7,
+                "prefixItems": [
+                  {
+                    "enum": [
+                      "M",
+                      "L",
+                      "C",
+                      "Q",
+                      "Z"
+                    ]
+                  }
+                ],
+                "type": "array"
+              },
+              "maxItems": 200,
+              "type": "array"
+            },
+            "dash": {
+              "items": {
+                "maximum": 32.0,
+                "minimum": 0.0,
+                "type": "number"
+              },
+              "maxItems": 8,
+              "type": "array"
+            },
+            "fill": {
+              "description": "One of the set's colours ($fill, $line, $acc), none, or \"#rrggbb\".",
+              "pattern": "^(\\$fill|\\$line|\\$acc|none|#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6}))$",
+              "type": "string"
+            },
+            "fill_opacity": {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            "group": {
+              "description": "The part it belongs to, which a motion can move. Not \"spin\" or \"frame…\".",
+              "pattern": "^[a-z0-9-]{1,24}$",
+              "type": "string"
+            },
+            "join": {
+              "enum": [
+                "round",
+                "miter",
+                "bevel"
+              ]
+            },
+            "kind": {
+              "const": "path"
+            },
+            "line": {
+              "description": "One of the set's colours ($fill, $line, $acc), none, or \"#rrggbb\".",
+              "pattern": "^(\\$fill|\\$line|\\$acc|none|#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6}))$",
+              "type": "string"
+            },
+            "line_opacity": {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            "under": {
+              "description": "The stroke under the fill, so it shows only outside.",
+              "type": "boolean"
+            },
+            "width": {
+              "maximum": 8.0,
+              "minimum": 0.0,
+              "type": "number"
+            }
+          },
+          "required": [
+            "kind"
+          ],
+          "type": "object"
+        },
+        {
+          "properties": {
+            "cap": {
+              "enum": [
+                "round",
+                "butt",
+                "square"
+              ]
+            },
+            "dash": {
+              "items": {
+                "maximum": 32.0,
+                "minimum": 0.0,
+                "type": "number"
+              },
+              "maxItems": 8,
+              "type": "array"
+            },
+            "fill": {
+              "description": "One of the set's colours ($fill, $line, $acc), none, or \"#rrggbb\".",
+              "pattern": "^(\\$fill|\\$line|\\$acc|none|#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6}))$",
+              "type": "string"
+            },
+            "fill_opacity": {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            "group": {
+              "description": "The part it belongs to, which a motion can move. Not \"spin\" or \"frame…\".",
+              "pattern": "^[a-z0-9-]{1,24}$",
+              "type": "string"
+            },
+            "h": {
+              "maximum": 64.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            "join": {
+              "enum": [
+                "round",
+                "miter",
+                "bevel"
+              ]
+            },
+            "kind": {
+              "const": "rect"
+            },
+            "line": {
+              "description": "One of the set's colours ($fill, $line, $acc), none, or \"#rrggbb\".",
+              "pattern": "^(\\$fill|\\$line|\\$acc|none|#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6}))$",
+              "type": "string"
+            },
+            "line_opacity": {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            "r": {
+              "maximum": 64.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            "under": {
+              "description": "The stroke under the fill, so it shows only outside.",
+              "type": "boolean"
+            },
+            "w": {
+              "maximum": 64.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            "width": {
+              "maximum": 8.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            "x": {
+              "maximum": 48.0,
+              "minimum": -16.0,
+              "type": "number"
+            },
+            "y": {
+              "maximum": 48.0,
+              "minimum": -16.0,
+              "type": "number"
+            }
+          },
+          "required": [
+            "kind"
+          ],
+          "type": "object"
+        },
+        {
+          "properties": {
+            "cap": {
+              "enum": [
+                "round",
+                "butt",
+                "square"
+              ]
+            },
+            "cx": {
+              "maximum": 48.0,
+              "minimum": -16.0,
+              "type": "number"
+            },
+            "cy": {
+              "maximum": 48.0,
+              "minimum": -16.0,
+              "type": "number"
+            },
+            "dash": {
+              "items": {
+                "maximum": 32.0,
+                "minimum": 0.0,
+                "type": "number"
+              },
+              "maxItems": 8,
+              "type": "array"
+            },
+            "fill": {
+              "description": "One of the set's colours ($fill, $line, $acc), none, or \"#rrggbb\".",
+              "pattern": "^(\\$fill|\\$line|\\$acc|none|#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6}))$",
+              "type": "string"
+            },
+            "fill_opacity": {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            "group": {
+              "description": "The part it belongs to, which a motion can move. Not \"spin\" or \"frame…\".",
+              "pattern": "^[a-z0-9-]{1,24}$",
+              "type": "string"
+            },
+            "join": {
+              "enum": [
+                "round",
+                "miter",
+                "bevel"
+              ]
+            },
+            "kind": {
+              "const": "ellipse"
+            },
+            "line": {
+              "description": "One of the set's colours ($fill, $line, $acc), none, or \"#rrggbb\".",
+              "pattern": "^(\\$fill|\\$line|\\$acc|none|#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6}))$",
+              "type": "string"
+            },
+            "line_opacity": {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            "rx": {
+              "maximum": 64.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            "ry": {
+              "maximum": 64.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            "under": {
+              "description": "The stroke under the fill, so it shows only outside.",
+              "type": "boolean"
+            },
+            "width": {
+              "maximum": 8.0,
+              "minimum": 0.0,
+              "type": "number"
+            }
+          },
+          "required": [
+            "kind"
+          ],
+          "type": "object"
+        },
+        {
+          "properties": {
+            "cap": {
+              "enum": [
+                "round",
+                "butt",
+                "square"
+              ]
+            },
+            "dash": {
+              "items": {
+                "maximum": 32.0,
+                "minimum": 0.0,
+                "type": "number"
+              },
+              "maxItems": 8,
+              "type": "array"
+            },
+            "fill": {
+              "description": "One of the set's colours ($fill, $line, $acc), none, or \"#rrggbb\".",
+              "pattern": "^(\\$fill|\\$line|\\$acc|none|#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6}))$",
+              "type": "string"
+            },
+            "fill_opacity": {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            "group": {
+              "description": "The part it belongs to, which a motion can move. Not \"spin\" or \"frame…\".",
+              "pattern": "^[a-z0-9-]{1,24}$",
+              "type": "string"
+            },
+            "join": {
+              "enum": [
+                "round",
+                "miter",
+                "bevel"
+              ]
+            },
+            "kind": {
+              "const": "line"
+            },
+            "line": {
+              "description": "One of the set's colours ($fill, $line, $acc), none, or \"#rrggbb\".",
+              "pattern": "^(\\$fill|\\$line|\\$acc|none|#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6}))$",
+              "type": "string"
+            },
+            "line_opacity": {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            "under": {
+              "description": "The stroke under the fill, so it shows only outside.",
+              "type": "boolean"
+            },
+            "width": {
+              "maximum": 8.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            "x1": {
+              "maximum": 48.0,
+              "minimum": -16.0,
+              "type": "number"
+            },
+            "x2": {
+              "maximum": 48.0,
+              "minimum": -16.0,
+              "type": "number"
+            },
+            "y1": {
+              "maximum": 48.0,
+              "minimum": -16.0,
+              "type": "number"
+            },
+            "y2": {
+              "maximum": 48.0,
+              "minimum": -16.0,
+              "type": "number"
+            }
+          },
+          "required": [
+            "kind"
+          ],
+          "type": "object"
+        },
+        {
+          "properties": {
+            "cap": {
+              "enum": [
+                "round",
+                "butt",
+                "square"
+              ]
+            },
+            "cx": {
+              "maximum": 48.0,
+              "minimum": -16.0,
+              "type": "number"
+            },
+            "cy": {
+              "maximum": 48.0,
+              "minimum": -16.0,
+              "type": "number"
+            },
+            "dash": {
+              "items": {
+                "maximum": 32.0,
+                "minimum": 0.0,
+                "type": "number"
+              },
+              "maxItems": 8,
+              "type": "array"
+            },
+            "fill": {
+              "description": "One of the set's colours ($fill, $line, $acc), none, or \"#rrggbb\".",
+              "pattern": "^(\\$fill|\\$line|\\$acc|none|#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6}))$",
+              "type": "string"
+            },
+            "fill_opacity": {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            "from": {
+              "maximum": 720.0,
+              "minimum": -720.0,
+              "type": "number"
+            },
+            "group": {
+              "description": "The part it belongs to, which a motion can move. Not \"spin\" or \"frame…\".",
+              "pattern": "^[a-z0-9-]{1,24}$",
+              "type": "string"
+            },
+            "join": {
+              "enum": [
+                "round",
+                "miter",
+                "bevel"
+              ]
+            },
+            "kind": {
+              "const": "arc"
+            },
+            "line": {
+              "description": "One of the set's colours ($fill, $line, $acc), none, or \"#rrggbb\".",
+              "pattern": "^(\\$fill|\\$line|\\$acc|none|#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6}))$",
+              "type": "string"
+            },
+            "line_opacity": {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            "r": {
+              "maximum": 64.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            "to": {
+              "maximum": 720.0,
+              "minimum": -720.0,
+              "type": "number"
+            },
+            "under": {
+              "description": "The stroke under the fill, so it shows only outside.",
+              "type": "boolean"
+            },
+            "width": {
+              "maximum": 8.0,
+              "minimum": 0.0,
+              "type": "number"
+            }
+          },
+          "required": [
+            "kind"
+          ],
+          "type": "object"
+        }
+      ]
+    }
+  },
+  "$id": "https://stillwarddisplay.com/schema/pointer-studio.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "studio.json, beside a set's scheme.json: the set as the studio's sliders, the roles drawn by hand and how each moves. At most 256 KB.",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "name": {
+      "maxLength": 64,
+      "type": "string"
+    },
+    "palette": {
+      "oneOf": [
+        {
+          "properties": {
+            "kind": {
+              "const": "accent"
+            }
+          },
+          "required": [
+            "kind"
+          ],
+          "type": "object"
+        },
+        {
+          "properties": {
+            "acc": {
+              "description": "A shade of the steel, \"steel:1\" (palest) to \"steel:5\", or \"#rrggbb\".",
+              "pattern": "^(steel:[1-5]|#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6}))$",
+              "type": "string"
+            },
+            "fill": {
+              "description": "A shade of the steel, \"steel:1\" (palest) to \"steel:5\", or \"#rrggbb\".",
+              "pattern": "^(steel:[1-5]|#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6}))$",
+              "type": "string"
+            },
+            "kind": {
+              "const": "fixed"
+            },
+            "line": {
+              "description": "A shade of the steel, \"steel:1\" (palest) to \"steel:5\", or \"#rrggbb\".",
+              "pattern": "^(steel:[1-5]|#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6}))$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "kind",
+            "fill",
+            "line",
+            "acc"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "roles": {
+      "additionalProperties": false,
+      "properties": {
+        "AppStarting": {
+          "$ref": "#/$defs/role"
+        },
+        "Arrow": {
+          "$ref": "#/$defs/role"
+        },
+        "Crosshair": {
+          "$ref": "#/$defs/role"
+        },
+        "Hand": {
+          "$ref": "#/$defs/role"
+        },
+        "Help": {
+          "$ref": "#/$defs/role"
+        },
+        "IBeam": {
+          "$ref": "#/$defs/role"
+        },
+        "NWPen": {
+          "$ref": "#/$defs/role"
+        },
+        "No": {
+          "$ref": "#/$defs/role"
+        },
+        "Person": {
+          "$ref": "#/$defs/role"
+        },
+        "Pin": {
+          "$ref": "#/$defs/role"
+        },
+        "SizeAll": {
+          "$ref": "#/$defs/role"
+        },
+        "SizeNESW": {
+          "$ref": "#/$defs/role"
+        },
+        "SizeNS": {
+          "$ref": "#/$defs/role"
+        },
+        "SizeNWSE": {
+          "$ref": "#/$defs/role"
+        },
+        "SizeWE": {
+          "$ref": "#/$defs/role"
+        },
+        "UpArrow": {
+          "$ref": "#/$defs/role"
+        },
+        "Wait": {
+          "$ref": "#/$defs/role"
+        }
+      },
+      "type": "object"
+    },
+    "style": {
+      "additionalProperties": false,
+      "properties": {
+        "badge": {
+          "maximum": 7.0,
+          "minimum": 4.5,
+          "type": "number"
+        },
+        "bar": {
+          "maximum": 2.5999999046325684,
+          "minimum": 1.0,
+          "type": "number"
+        },
+        "corner": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        "head": {
+          "maximum": 10.0,
+          "minimum": 5.0,
+          "type": "number"
+        },
+        "head_width": {
+          "maximum": 8.0,
+          "minimum": 4.0,
+          "type": "number"
+        },
+        "hollow": {
+          "type": "boolean"
+        },
+        "length": {
+          "maximum": 24.0,
+          "minimum": 16.0,
+          "type": "number"
+        },
+        "notch": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        "outline": {
+          "maximum": 3.0,
+          "minimum": 0.75,
+          "type": "number"
+        },
+        "ring": {
+          "maximum": 11.0,
+          "minimum": 6.0,
+          "type": "number"
+        },
+        "scale": {
+          "maximum": 1.2000000476837158,
+          "minimum": 0.800000011920929,
+          "type": "number"
+        },
+        "shaft": {
+          "maximum": 3.200000047683716,
+          "minimum": 1.2000000476837158,
+          "type": "number"
+        },
+        "tail": {
+          "maximum": 11.0,
+          "minimum": 4.0,
+          "type": "number"
+        },
+        "tail_width": {
+          "maximum": 5.5,
+          "minimum": 2.4000000953674316,
+          "type": "number"
+        },
+        "tip": {
+          "maximum": 60.0,
+          "minimum": 32.0,
+          "type": "number"
+        },
+        "wait": {
+          "enum": [
+            "arc",
+            "thin",
+            "dots"
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "version": {
+      "maximum": 1,
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  "title": "Stillward Display pointer studio document",
+  "type": "object"
+}

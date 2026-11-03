@@ -1,0 +1,409 @@
+{
+  "$id": "https://stillwarddisplay.com/schema/setup.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A whole desk's look: the items it uses named by Workshop number, and its own places, colours and numbers. Every part is optional. No wallpaper.",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "accent": {
+      "pattern": "^#[0-9a-fA-F]{6}$",
+      "type": "string"
+    },
+    "bar": {
+      "oneOf": [
+        {
+          "properties": {
+            "ws": {
+              "description": "A Workshop item, by its number.",
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "ws"
+          ],
+          "type": "object"
+        },
+        {
+          "properties": {
+            "key": {
+              "description": "One of the program's own, by its key: windows, none.",
+              "pattern": "^[a-z0-9-]{1,64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "key"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "frame": {
+      "properties": {
+        "colour": {
+          "enum": [
+            "brand",
+            "windows",
+            "own"
+          ]
+        },
+        "level": {
+          "maximum": 3,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "on": {
+          "type": "boolean"
+        },
+        "own": {
+          "pattern": "^#[0-9a-fA-F]{6}$",
+          "type": "string"
+        },
+        "shade": {
+          "maximum": 5,
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "glass": {
+      "maximum": 100,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "icons": {
+      "oneOf": [
+        {
+          "properties": {
+            "ws": {
+              "description": "A Workshop item, by its number.",
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "ws"
+          ],
+          "type": "object"
+        },
+        {
+          "properties": {
+            "key": {
+              "description": "One of the program's own, by its key: windows, none.",
+              "pattern": "^[a-z0-9-]{1,64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "key"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "island": {
+      "properties": {
+        "activities": {
+          "items": {
+            "properties": {
+              "look": {
+                "maximum": 3,
+                "minimum": 0,
+                "type": "integer"
+              },
+              "ref": {
+                "oneOf": [
+                  {
+                    "properties": {
+                      "ws": {
+                        "description": "A Workshop item, by its number.",
+                        "minimum": 1,
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "ws"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "properties": {
+                      "key": {
+                        "description": "One of the program's own, by its key: windows, none.",
+                        "pattern": "^[a-z0-9-]{1,64}$",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "key"
+                    ],
+                    "type": "object"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "ref"
+            ],
+            "type": "object"
+          },
+          "maxItems": 16,
+          "type": "array"
+        },
+        "calendar": {
+          "type": "boolean"
+        },
+        "clock": {
+          "type": "boolean"
+        },
+        "face": {
+          "enum": [
+            "off",
+            "digital",
+            "analog"
+          ]
+        },
+        "media": {
+          "type": "boolean"
+        },
+        "on": {
+          "type": "boolean"
+        },
+        "size": {
+          "maximum": 200,
+          "minimum": 80,
+          "type": "integer"
+        },
+        "volume": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "motion": {
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "properties": {
+              "ws": {
+                "description": "A Workshop item, by its number.",
+                "minimum": 1,
+                "type": "integer"
+              }
+            },
+            "required": [
+              "ws"
+            ],
+            "type": "object"
+          },
+          {
+            "properties": {
+              "key": {
+                "description": "One of the program's own, by its key: windows, none.",
+                "pattern": "^[a-z0-9-]{1,64}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "key"
+            ],
+            "type": "object"
+          }
+        ]
+      },
+      "description": "A window animation style for each moment.",
+      "propertyNames": {
+        "enum": [
+          "minimize",
+          "maximize",
+          "drag",
+          "resize",
+          "snap",
+          "monitor",
+          "arrange",
+          "switch",
+          "open-close"
+        ]
+      },
+      "type": "object"
+    },
+    "name": {
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    },
+    "pointer": {
+      "properties": {
+        "fx": {
+          "properties": {
+            "light": {
+              "type": "boolean"
+            },
+            "over_full": {
+              "type": "boolean"
+            },
+            "sparks": {
+              "type": "boolean"
+            },
+            "trail": {
+              "type": "boolean"
+            }
+          },
+          "type": "object"
+        },
+        "look": {
+          "type": "object"
+        },
+        "set": {
+          "oneOf": [
+            {
+              "properties": {
+                "ws": {
+                  "description": "A Workshop item, by its number.",
+                  "minimum": 1,
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "ws"
+              ],
+              "type": "object"
+            },
+            {
+              "properties": {
+                "key": {
+                  "description": "One of the program's own, by its key: windows, none.",
+                  "pattern": "^[a-z0-9-]{1,64}$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "key"
+              ],
+              "type": "object"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "sounds": {
+      "properties": {
+        "ours": {
+          "enum": [
+            "chimes",
+            "chimes-soft",
+            "glock",
+            "marimba",
+            "vibes",
+            "pearl"
+          ]
+        },
+        "windows": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "theme": {
+      "enum": [
+        "light",
+        "dark"
+      ]
+    },
+    "version": {
+      "maximum": 1,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "widgets": {
+      "description": "Widgets and where they stand, from a corner of the main monitor's work area, in its logical pixels.",
+      "items": {
+        "properties": {
+          "corner": {
+            "enum": [
+              "top-left",
+              "top-right",
+              "bottom-left",
+              "bottom-right"
+            ]
+          },
+          "dx": {
+            "maximum": 8000.0,
+            "minimum": 0,
+            "type": "number"
+          },
+          "dy": {
+            "maximum": 8000.0,
+            "minimum": 0,
+            "type": "number"
+          },
+          "layer": {
+            "enum": [
+              "desk",
+              "top"
+            ]
+          },
+          "opacity": {
+            "maximum": 1.0,
+            "minimum": 0.2,
+            "type": "number"
+          },
+          "ref": {
+            "oneOf": [
+              {
+                "properties": {
+                  "ws": {
+                    "description": "A Workshop item, by its number.",
+                    "minimum": 1,
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "ws"
+                ],
+                "type": "object"
+              },
+              {
+                "properties": {
+                  "key": {
+                    "description": "One of the program's own, by its key: windows, none.",
+                    "pattern": "^[a-z0-9-]{1,64}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "key"
+                ],
+                "type": "object"
+              }
+            ]
+          },
+          "scale": {
+            "maximum": 3.0,
+            "minimum": 0.5,
+            "type": "number"
+          },
+          "through": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "ref"
+        ],
+        "type": "object"
+      },
+      "maxItems": 48,
+      "type": "array"
+    }
+  },
+  "required": [
+    "version",
+    "name"
+  ],
+  "title": "Stillward Display setup",
+  "type": "object"
+}

@@ -5,14 +5,14 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time. Issues here are **public**: leave out anything you would not post in the open.
+        Thanks for taking the time. Issues here are **public**: leave out anything you would not post in the open. One bug per issue.
   - type: textarea
     id: what
     attributes:
       label: What happened
       description: What you did, what you expected, and what happened instead.
       placeholder: |
-        I launched a game with a preset. The chat window went to the right zone, the browser stayed on the main monitor.
+        I minimized a window with the Lamp style. It went into the wrong button on the dock.
     validations:
       required: true
   - type: textarea

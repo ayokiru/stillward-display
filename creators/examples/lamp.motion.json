@@ -1,0 +1,25 @@
+{
+  "$schema": "https://stillwarddisplay.com/schema/motion.json",
+  "version": 2,
+  "name": "Pour",
+  "minimize": {
+    "effect": {
+      "kind": "pour",
+      "bend": 0.7,
+      "squeeze": 0.6,
+      "slices": 64,
+      "fade": 0.3,
+      "sway": 0.4,
+      "waist": 0.5
+    },
+    "duration_ms": 480,
+    "ease": {
+      "bezier": [
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ]
+    }
+  }
+}

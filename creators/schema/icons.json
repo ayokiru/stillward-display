@@ -1,0 +1,150 @@
+{
+  "$id": "https://stillwarddisplay.com/schema/icons.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "One look for the icons on the program's dock, bar and Apps, and for the desk's own icons. Data only: drawings come from the set's own folder.",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "accent": {
+      "description": "$acc is the Windows accent at the time the icons are drawn.",
+      "type": "boolean"
+    },
+    "apps": {
+      "additionalProperties": {
+        "description": "A drawing beside the file: SVG (no text, no pictures inside it) or PNG of at most 1024 a side.",
+        "pattern": "^[^\\\\/:.][^\\\\/:]{0,127}\\.(svg|png|SVG|PNG)$",
+        "type": "string"
+      },
+      "description": "Icons for particular programs: exe:<file name>.exe or app:<AppUserModelID>.",
+      "maxProperties": 256,
+      "propertyNames": {
+        "pattern": "^(exe:[^\\\\/:]+\\.[eE][xX][eE]|app:[^\\\\/\\s]+)$"
+      },
+      "type": "object"
+    },
+    "kinds": {
+      "additionalProperties": false,
+      "properties": {
+        "bin-empty": {
+          "description": "A drawing beside the file: SVG (no text, no pictures inside it) or PNG of at most 1024 a side.",
+          "pattern": "^[^\\\\/:.][^\\\\/:]{0,127}\\.(svg|png|SVG|PNG)$",
+          "type": "string"
+        },
+        "bin-full": {
+          "description": "A drawing beside the file: SVG (no text, no pictures inside it) or PNG of at most 1024 a side.",
+          "pattern": "^[^\\\\/:.][^\\\\/:]{0,127}\\.(svg|png|SVG|PNG)$",
+          "type": "string"
+        },
+        "computer": {
+          "description": "A drawing beside the file: SVG (no text, no pictures inside it) or PNG of at most 1024 a side.",
+          "pattern": "^[^\\\\/:.][^\\\\/:]{0,127}\\.(svg|png|SVG|PNG)$",
+          "type": "string"
+        },
+        "folder": {
+          "description": "A drawing beside the file: SVG (no text, no pictures inside it) or PNG of at most 1024 a side.",
+          "pattern": "^[^\\\\/:.][^\\\\/:]{0,127}\\.(svg|png|SVG|PNG)$",
+          "type": "string"
+        },
+        "network": {
+          "description": "A drawing beside the file: SVG (no text, no pictures inside it) or PNG of at most 1024 a side.",
+          "pattern": "^[^\\\\/:.][^\\\\/:]{0,127}\\.(svg|png|SVG|PNG)$",
+          "type": "string"
+        },
+        "user": {
+          "description": "A drawing beside the file: SVG (no text, no pictures inside it) or PNG of at most 1024 a side.",
+          "pattern": "^[^\\\\/:.][^\\\\/:]{0,127}\\.(svg|png|SVG|PNG)$",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "name": {
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    },
+    "paint": {
+      "additionalProperties": false,
+      "description": "What the colour words in the drawings become. The desk's steel when absent.",
+      "properties": {
+        "acc": {
+          "pattern": "^#?([0-9a-fA-F]{6}|[0-9a-fA-F]{3})$",
+          "type": "string"
+        },
+        "fill": {
+          "pattern": "^#?([0-9a-fA-F]{6}|[0-9a-fA-F]{3})$",
+          "type": "string"
+        },
+        "halo": {
+          "pattern": "^#?([0-9a-fA-F]{6}|[0-9a-fA-F]{3})$",
+          "type": "string"
+        },
+        "line": {
+          "pattern": "^#?([0-9a-fA-F]{6}|[0-9a-fA-F]{3})$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "fill",
+        "line",
+        "acc"
+      ],
+      "type": "object"
+    },
+    "programs": {
+      "additionalProperties": false,
+      "description": "What becomes of every program's own icon the set draws none for. Neither: left as it is.",
+      "properties": {
+        "plate": {
+          "additionalProperties": false,
+          "properties": {
+            "edge": {
+              "description": "One of the set's colours ($fill, $line, $acc) or #rrggbb.",
+              "pattern": "^(\\$fill|\\$line|\\$acc|#?[0-9a-fA-F]{6}|#?[0-9a-fA-F]{3})$",
+              "type": "string"
+            },
+            "fill": {
+              "description": "One of the set's colours ($fill, $line, $acc) or #rrggbb.",
+              "pattern": "^(\\$fill|\\$line|\\$acc|#?[0-9a-fA-F]{6}|#?[0-9a-fA-F]{3})$",
+              "type": "string"
+            },
+            "shape": {
+              "enum": [
+                "squircle",
+                "circle"
+              ],
+              "type": "string"
+            },
+            "size": {
+              "description": "The program's icon's side on the plate, as a share of the plate's.",
+              "maximum": 0.8,
+              "minimum": 0.4,
+              "type": "number"
+            }
+          },
+          "required": [
+            "fill"
+          ],
+          "type": "object"
+        },
+        "tint": {
+          "description": "One of the set's colours ($fill, $line, $acc) or #rrggbb.",
+          "pattern": "^(\\$fill|\\$line|\\$acc|#?[0-9a-fA-F]{6}|#?[0-9a-fA-F]{3})$",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "version": {
+      "maximum": 1,
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "title": "Stillward Display icon set",
+  "type": "object"
+}

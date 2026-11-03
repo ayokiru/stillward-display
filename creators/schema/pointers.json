@@ -1,0 +1,349 @@
+{
+  "$id": "https://stillwarddisplay.com/schema/pointers.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "scheme.json, beside the pointers it names. At most 64 KB.",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "accent": {
+      "description": "Paint the drawings in the Windows accent at the time they are drawn, rather than in paint.",
+      "type": "boolean"
+    },
+    "files": {
+      "additionalProperties": false,
+      "properties": {
+        "AppStarting": {
+          "description": "A file in the same folder: a drawing (.svg, at most 512 KB) or a cursor (.cur, .ani, .ico), which is taken apart and written again.",
+          "pattern": "^[^\\\\/:.][^\\\\/:]*\\.([sS][vV][gG]|[cC][uU][rR]|[aA][nN][iI]|[iI][cC][oO])$",
+          "type": "string"
+        },
+        "Arrow": {
+          "description": "A file in the same folder: a drawing (.svg, at most 512 KB) or a cursor (.cur, .ani, .ico), which is taken apart and written again.",
+          "pattern": "^[^\\\\/:.][^\\\\/:]*\\.([sS][vV][gG]|[cC][uU][rR]|[aA][nN][iI]|[iI][cC][oO])$",
+          "type": "string"
+        },
+        "Crosshair": {
+          "description": "A file in the same folder: a drawing (.svg, at most 512 KB) or a cursor (.cur, .ani, .ico), which is taken apart and written again.",
+          "pattern": "^[^\\\\/:.][^\\\\/:]*\\.([sS][vV][gG]|[cC][uU][rR]|[aA][nN][iI]|[iI][cC][oO])$",
+          "type": "string"
+        },
+        "Hand": {
+          "description": "A file in the same folder: a drawing (.svg, at most 512 KB) or a cursor (.cur, .ani, .ico), which is taken apart and written again.",
+          "pattern": "^[^\\\\/:.][^\\\\/:]*\\.([sS][vV][gG]|[cC][uU][rR]|[aA][nN][iI]|[iI][cC][oO])$",
+          "type": "string"
+        },
+        "Help": {
+          "description": "A file in the same folder: a drawing (.svg, at most 512 KB) or a cursor (.cur, .ani, .ico), which is taken apart and written again.",
+          "pattern": "^[^\\\\/:.][^\\\\/:]*\\.([sS][vV][gG]|[cC][uU][rR]|[aA][nN][iI]|[iI][cC][oO])$",
+          "type": "string"
+        },
+        "IBeam": {
+          "description": "A file in the same folder: a drawing (.svg, at most 512 KB) or a cursor (.cur, .ani, .ico), which is taken apart and written again.",
+          "pattern": "^[^\\\\/:.][^\\\\/:]*\\.([sS][vV][gG]|[cC][uU][rR]|[aA][nN][iI]|[iI][cC][oO])$",
+          "type": "string"
+        },
+        "NWPen": {
+          "description": "A file in the same folder: a drawing (.svg, at most 512 KB) or a cursor (.cur, .ani, .ico), which is taken apart and written again.",
+          "pattern": "^[^\\\\/:.][^\\\\/:]*\\.([sS][vV][gG]|[cC][uU][rR]|[aA][nN][iI]|[iI][cC][oO])$",
+          "type": "string"
+        },
+        "No": {
+          "description": "A file in the same folder: a drawing (.svg, at most 512 KB) or a cursor (.cur, .ani, .ico), which is taken apart and written again.",
+          "pattern": "^[^\\\\/:.][^\\\\/:]*\\.([sS][vV][gG]|[cC][uU][rR]|[aA][nN][iI]|[iI][cC][oO])$",
+          "type": "string"
+        },
+        "Person": {
+          "description": "A file in the same folder: a drawing (.svg, at most 512 KB) or a cursor (.cur, .ani, .ico), which is taken apart and written again.",
+          "pattern": "^[^\\\\/:.][^\\\\/:]*\\.([sS][vV][gG]|[cC][uU][rR]|[aA][nN][iI]|[iI][cC][oO])$",
+          "type": "string"
+        },
+        "Pin": {
+          "description": "A file in the same folder: a drawing (.svg, at most 512 KB) or a cursor (.cur, .ani, .ico), which is taken apart and written again.",
+          "pattern": "^[^\\\\/:.][^\\\\/:]*\\.([sS][vV][gG]|[cC][uU][rR]|[aA][nN][iI]|[iI][cC][oO])$",
+          "type": "string"
+        },
+        "SizeAll": {
+          "description": "A file in the same folder: a drawing (.svg, at most 512 KB) or a cursor (.cur, .ani, .ico), which is taken apart and written again.",
+          "pattern": "^[^\\\\/:.][^\\\\/:]*\\.([sS][vV][gG]|[cC][uU][rR]|[aA][nN][iI]|[iI][cC][oO])$",
+          "type": "string"
+        },
+        "SizeNESW": {
+          "description": "A file in the same folder: a drawing (.svg, at most 512 KB) or a cursor (.cur, .ani, .ico), which is taken apart and written again.",
+          "pattern": "^[^\\\\/:.][^\\\\/:]*\\.([sS][vV][gG]|[cC][uU][rR]|[aA][nN][iI]|[iI][cC][oO])$",
+          "type": "string"
+        },
+        "SizeNS": {
+          "description": "A file in the same folder: a drawing (.svg, at most 512 KB) or a cursor (.cur, .ani, .ico), which is taken apart and written again.",
+          "pattern": "^[^\\\\/:.][^\\\\/:]*\\.([sS][vV][gG]|[cC][uU][rR]|[aA][nN][iI]|[iI][cC][oO])$",
+          "type": "string"
+        },
+        "SizeNWSE": {
+          "description": "A file in the same folder: a drawing (.svg, at most 512 KB) or a cursor (.cur, .ani, .ico), which is taken apart and written again.",
+          "pattern": "^[^\\\\/:.][^\\\\/:]*\\.([sS][vV][gG]|[cC][uU][rR]|[aA][nN][iI]|[iI][cC][oO])$",
+          "type": "string"
+        },
+        "SizeWE": {
+          "description": "A file in the same folder: a drawing (.svg, at most 512 KB) or a cursor (.cur, .ani, .ico), which is taken apart and written again.",
+          "pattern": "^[^\\\\/:.][^\\\\/:]*\\.([sS][vV][gG]|[cC][uU][rR]|[aA][nN][iI]|[iI][cC][oO])$",
+          "type": "string"
+        },
+        "UpArrow": {
+          "description": "A file in the same folder: a drawing (.svg, at most 512 KB) or a cursor (.cur, .ani, .ico), which is taken apart and written again.",
+          "pattern": "^[^\\\\/:.][^\\\\/:]*\\.([sS][vV][gG]|[cC][uU][rR]|[aA][nN][iI]|[iI][cC][oO])$",
+          "type": "string"
+        },
+        "Wait": {
+          "description": "A file in the same folder: a drawing (.svg, at most 512 KB) or a cursor (.cur, .ani, .ico), which is taken apart and written again.",
+          "pattern": "^[^\\\\/:.][^\\\\/:]*\\.([sS][vV][gG]|[cC][uU][rR]|[aA][nN][iI]|[iI][cC][oO])$",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "hotspots": {
+      "additionalProperties": false,
+      "properties": {
+        "AppStarting": {
+          "description": "The point that points: in a drawing's own units, or in pixels of a cursor's largest picture. Over a drawing's data-hotspot.",
+          "items": {
+            "type": "number"
+          },
+          "maxItems": 2,
+          "minItems": 2,
+          "type": "array"
+        },
+        "Arrow": {
+          "description": "The point that points: in a drawing's own units, or in pixels of a cursor's largest picture. Over a drawing's data-hotspot.",
+          "items": {
+            "type": "number"
+          },
+          "maxItems": 2,
+          "minItems": 2,
+          "type": "array"
+        },
+        "Crosshair": {
+          "description": "The point that points: in a drawing's own units, or in pixels of a cursor's largest picture. Over a drawing's data-hotspot.",
+          "items": {
+            "type": "number"
+          },
+          "maxItems": 2,
+          "minItems": 2,
+          "type": "array"
+        },
+        "Hand": {
+          "description": "The point that points: in a drawing's own units, or in pixels of a cursor's largest picture. Over a drawing's data-hotspot.",
+          "items": {
+            "type": "number"
+          },
+          "maxItems": 2,
+          "minItems": 2,
+          "type": "array"
+        },
+        "Help": {
+          "description": "The point that points: in a drawing's own units, or in pixels of a cursor's largest picture. Over a drawing's data-hotspot.",
+          "items": {
+            "type": "number"
+          },
+          "maxItems": 2,
+          "minItems": 2,
+          "type": "array"
+        },
+        "IBeam": {
+          "description": "The point that points: in a drawing's own units, or in pixels of a cursor's largest picture. Over a drawing's data-hotspot.",
+          "items": {
+            "type": "number"
+          },
+          "maxItems": 2,
+          "minItems": 2,
+          "type": "array"
+        },
+        "NWPen": {
+          "description": "The point that points: in a drawing's own units, or in pixels of a cursor's largest picture. Over a drawing's data-hotspot.",
+          "items": {
+            "type": "number"
+          },
+          "maxItems": 2,
+          "minItems": 2,
+          "type": "array"
+        },
+        "No": {
+          "description": "The point that points: in a drawing's own units, or in pixels of a cursor's largest picture. Over a drawing's data-hotspot.",
+          "items": {
+            "type": "number"
+          },
+          "maxItems": 2,
+          "minItems": 2,
+          "type": "array"
+        },
+        "Person": {
+          "description": "The point that points: in a drawing's own units, or in pixels of a cursor's largest picture. Over a drawing's data-hotspot.",
+          "items": {
+            "type": "number"
+          },
+          "maxItems": 2,
+          "minItems": 2,
+          "type": "array"
+        },
+        "Pin": {
+          "description": "The point that points: in a drawing's own units, or in pixels of a cursor's largest picture. Over a drawing's data-hotspot.",
+          "items": {
+            "type": "number"
+          },
+          "maxItems": 2,
+          "minItems": 2,
+          "type": "array"
+        },
+        "SizeAll": {
+          "description": "The point that points: in a drawing's own units, or in pixels of a cursor's largest picture. Over a drawing's data-hotspot.",
+          "items": {
+            "type": "number"
+          },
+          "maxItems": 2,
+          "minItems": 2,
+          "type": "array"
+        },
+        "SizeNESW": {
+          "description": "The point that points: in a drawing's own units, or in pixels of a cursor's largest picture. Over a drawing's data-hotspot.",
+          "items": {
+            "type": "number"
+          },
+          "maxItems": 2,
+          "minItems": 2,
+          "type": "array"
+        },
+        "SizeNS": {
+          "description": "The point that points: in a drawing's own units, or in pixels of a cursor's largest picture. Over a drawing's data-hotspot.",
+          "items": {
+            "type": "number"
+          },
+          "maxItems": 2,
+          "minItems": 2,
+          "type": "array"
+        },
+        "SizeNWSE": {
+          "description": "The point that points: in a drawing's own units, or in pixels of a cursor's largest picture. Over a drawing's data-hotspot.",
+          "items": {
+            "type": "number"
+          },
+          "maxItems": 2,
+          "minItems": 2,
+          "type": "array"
+        },
+        "SizeWE": {
+          "description": "The point that points: in a drawing's own units, or in pixels of a cursor's largest picture. Over a drawing's data-hotspot.",
+          "items": {
+            "type": "number"
+          },
+          "maxItems": 2,
+          "minItems": 2,
+          "type": "array"
+        },
+        "UpArrow": {
+          "description": "The point that points: in a drawing's own units, or in pixels of a cursor's largest picture. Over a drawing's data-hotspot.",
+          "items": {
+            "type": "number"
+          },
+          "maxItems": 2,
+          "minItems": 2,
+          "type": "array"
+        },
+        "Wait": {
+          "description": "The point that points: in a drawing's own units, or in pixels of a cursor's largest picture. Over a drawing's data-hotspot.",
+          "items": {
+            "type": "number"
+          },
+          "maxItems": 2,
+          "minItems": 2,
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "name": {
+      "maxLength": 80,
+      "type": "string"
+    },
+    "paint": {
+      "additionalProperties": false,
+      "description": "The colours the words $fill, $line and $acc in the drawings become.",
+      "properties": {
+        "acc": {
+          "description": "A colour: \"#rrggbb\" (version 1 wrote a plain number, which is still read).",
+          "oneOf": [
+            {
+              "pattern": "^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$",
+              "type": "string"
+            },
+            {
+              "maximum": 16777215,
+              "minimum": 0,
+              "type": "integer"
+            }
+          ]
+        },
+        "fill": {
+          "description": "A colour: \"#rrggbb\" (version 1 wrote a plain number, which is still read).",
+          "oneOf": [
+            {
+              "pattern": "^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$",
+              "type": "string"
+            },
+            {
+              "maximum": 16777215,
+              "minimum": 0,
+              "type": "integer"
+            }
+          ]
+        },
+        "halo": {
+          "description": "A colour: \"#rrggbb\" (version 1 wrote a plain number, which is still read).",
+          "oneOf": [
+            {
+              "pattern": "^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$",
+              "type": "string"
+            },
+            {
+              "maximum": 16777215,
+              "minimum": 0,
+              "type": "integer"
+            }
+          ]
+        },
+        "line": {
+          "description": "A colour: \"#rrggbb\" (version 1 wrote a plain number, which is still read).",
+          "oneOf": [
+            {
+              "pattern": "^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$",
+              "type": "string"
+            },
+            {
+              "maximum": 16777215,
+              "minimum": 0,
+              "type": "integer"
+            }
+          ]
+        }
+      },
+      "required": [
+        "fill",
+        "line",
+        "acc"
+      ],
+      "type": "object"
+    },
+    "version": {
+      "description": "Absent is 1. 2 when it gives points (hotspots).",
+      "maximum": 2,
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "name",
+    "files"
+  ],
+  "title": "Stillward Display pointer set",
+  "type": "object"
+}
