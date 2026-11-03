@@ -181,12 +181,26 @@ island, widgets, theme and glass.
 
 ## Make your own
 
+<p align="center">
+  <a href="https://stillwarddisplay.com/creators/"><img src="docs/images/creators.png" alt="Make your own: a style, a taskbar look and a widget, each beside the file that makes it" width="100%"></a>
+</p>
+
 Styles, taskbar looks, pointer sets, widgets, icon sets, island activities and
 setups can all be made by the people who use them and published to the Steam
 Workshop from inside the program. None of them is code: a style is a small
 JSON file of numbers, a look is a short list of the program's own words, a
 pointer set is seventeen pictures. The program checks every file before it
 uses it.
+
+| Make | Reference | File |
+|---|---|---|
+| Window animation styles | [stillwarddisplay.com/creators/styles](https://stillwarddisplay.com/creators/styles/) | `*.motion.json` |
+| Taskbar looks and docks | [stillwarddisplay.com/creators/taskbar](https://stillwarddisplay.com/creators/taskbar/) | `*.taskbar.json` |
+| Pointer sets | [stillwarddisplay.com/creators/pointers](https://stillwarddisplay.com/creators/pointers/) | `scheme.json` + SVG |
+| Widgets | [stillwarddisplay.com/creators/widgets](https://stillwarddisplay.com/creators/widgets/) | `*.widget.json` |
+| Icon sets | [stillwarddisplay.com/creators/icons](https://stillwarddisplay.com/creators/icons/) | `icons.json` + drawings |
+| Island activities | [stillwarddisplay.com/creators/island](https://stillwarddisplay.com/creators/island/) | `activity.json` |
+| Setups | [stillwarddisplay.com/creators/setups](https://stillwarddisplay.com/creators/setups/) | `setup.json` |
 
 [`creators/`](creators/) has the JSON Schemas of every format, worked examples
 and the templates, the same files as

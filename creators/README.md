@@ -23,6 +23,9 @@ for making them by hand or from a script.
 | Island activity | a widget's items for the island's two forms | [`schema/activity.json`](schema/activity.json) |
 | Setup | the items it wears, by Workshop number | [`schema/setup.json`](schema/setup.json) |
 
+Every format has a page with its fields, ranges and an example beside what
+the program draws from it: [stillwarddisplay.com/creators](https://stillwarddisplay.com/creators/).
+
 Each schema is also served at `https://stillwarddisplay.com/schema/<name>.json`,
 and a file the program saves starts with that `$schema` line. An editor that
 understands JSON Schema then offers every field with its range and meaning as
@@ -33,10 +36,10 @@ same release.
 
 In [`examples/`](examples/):
 
-- `lamp.motion.json`: a minimize shape with sliders an author can expose
-- `jelly.motion.json`: a drag
+- `pour.motion.json`: a minimize shape
+- `jelly.motion.json`: a drag, with sliders an author lets people turn
 - `corner-first.motion.json`: a mesh, the corner nearest the button leading
-- `quiet-oled.taskbar.json`: a taskbar look
+- `clean-taskbar.taskbar.json`: a taskbar of islands, with knobs
 - `clock.widget.json`: a widget
 - `stillward-pointer-template.zip`: seventeen pointers to draw over
 - `stillward-icon-set.zip`: an icon set to start from

@@ -1,0 +1,187 @@
+{
+  "$schema": "https://stillwarddisplay.com/schema/taskbar.json",
+  "version": 5,
+  "name": "Clean taskbar",
+  "about": "Start and your programs sit in the middle. The tray, network, volume, clock and notifications are on the right, on a rounded island of their own.",
+  "bar": {
+    "main": {
+      "isles": [
+        {
+          "at": "center",
+          "modules": [
+            {
+              "kind": "start"
+            },
+            {
+              "kind": "apps"
+            }
+          ]
+        },
+        {
+          "at": "end",
+          "modules": [
+            {
+              "kind": "tray"
+            },
+            {
+              "kind": "language"
+            },
+            {
+              "kind": "network"
+            },
+            {
+              "kind": "volume"
+            },
+            {
+              "kind": "clock",
+              "date": true
+            },
+            {
+              "kind": "notifications"
+            },
+            {
+              "kind": "desktop"
+            }
+          ]
+        }
+      ],
+      "size": 24,
+      "ground": 82,
+      "tint": "dark",
+      "radius": 12,
+      "float": 4,
+      "pad": 6,
+      "spacing": 70,
+      "magnify": 100,
+      "bounce": true
+    }
+  },
+  "knobs": [
+    {
+      "id": "radius",
+      "label": {
+        "arabic": "الزوايا",
+        "brazilian": "Cantos",
+        "bulgarian": "Ъгли",
+        "czech": "Rohy",
+        "danish": "Hjørner",
+        "dutch": "Hoeken",
+        "english": "Corners",
+        "finnish": "Kulmat",
+        "french": "Coins",
+        "german": "Ecken",
+        "greek": "Γωνίες",
+        "hungarian": "Sarkok",
+        "indonesian": "Sudut",
+        "italian": "Angoli",
+        "japanese": "角の丸み",
+        "koreana": "모서리",
+        "latam": "Esquinas",
+        "norwegian": "Hjørner",
+        "polish": "Rogi",
+        "portuguese": "Cantos",
+        "romanian": "Colțuri",
+        "russian": "Скругление",
+        "schinese": "圆角",
+        "spanish": "Esquinas",
+        "swedish": "Hörn",
+        "tchinese": "圓角",
+        "thai": "มุมโค้ง",
+        "turkish": "Köşeler",
+        "ukrainian": "Заокруглення",
+        "vietnamese": "Bo góc"
+      },
+      "path": "/bar/main/radius",
+      "type": "number",
+      "min": 0.0,
+      "max": 24.0,
+      "step": 1.0,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "id": "float",
+      "label": {
+        "arabic": "المسافة من الحافة",
+        "brazilian": "Distância da borda",
+        "bulgarian": "Разстояние от ръба",
+        "czech": "Vzdálenost od okraje",
+        "danish": "Afstand fra kanten",
+        "dutch": "Afstand tot de rand",
+        "english": "Distance from the edge",
+        "finnish": "Etäisyys reunasta",
+        "french": "Distance au bord",
+        "german": "Abstand zum Rand",
+        "greek": "Απόσταση από την άκρη",
+        "hungarian": "Távolság a széltől",
+        "indonesian": "Jarak dari tepi",
+        "italian": "Distanza dal bordo",
+        "japanese": "端からの距離",
+        "koreana": "가장자리와의 거리",
+        "latam": "Distancia del borde",
+        "norwegian": "Avstand fra kanten",
+        "polish": "Odległość od krawędzi",
+        "portuguese": "Distância da margem",
+        "romanian": "Distanța față de margine",
+        "russian": "Отступ от края",
+        "schinese": "与边缘的距离",
+        "spanish": "Distancia del borde",
+        "swedish": "Avstånd från kanten",
+        "tchinese": "與邊緣的距離",
+        "thai": "ระยะห่างจากขอบ",
+        "turkish": "Kenardan uzaklık",
+        "ukrainian": "Відступ від краю",
+        "vietnamese": "Khoảng cách tới mép"
+      },
+      "path": "/bar/main/float",
+      "type": "number",
+      "min": 0.0,
+      "max": 12.0,
+      "step": 1.0,
+      "unit": "px",
+      "default": 4
+    },
+    {
+      "id": "ground",
+      "label": {
+        "arabic": "الخلفية",
+        "brazilian": "Fundo",
+        "bulgarian": "Фон",
+        "czech": "Pozadí",
+        "danish": "Baggrund",
+        "dutch": "Achtergrond",
+        "english": "Background",
+        "finnish": "Tausta",
+        "french": "Fond",
+        "german": "Hintergrund",
+        "greek": "Φόντο",
+        "hungarian": "Háttér",
+        "indonesian": "Latar",
+        "italian": "Sfondo",
+        "japanese": "背景",
+        "koreana": "배경",
+        "latam": "Fondo",
+        "norwegian": "Bakgrunn",
+        "polish": "Tło",
+        "portuguese": "Fundo",
+        "romanian": "Fundal",
+        "russian": "Фон",
+        "schinese": "背景",
+        "spanish": "Fondo",
+        "swedish": "Bakgrund",
+        "tchinese": "背景",
+        "thai": "พื้นหลัง",
+        "turkish": "Arka plan",
+        "ukrainian": "Тло",
+        "vietnamese": "Nền"
+      },
+      "path": "/bar/main/ground",
+      "type": "number",
+      "min": 40.0,
+      "max": 100.0,
+      "step": 2.0,
+      "unit": "percent",
+      "default": 82
+    }
+  ]
+}
