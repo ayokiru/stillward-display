@@ -31,12 +31,12 @@ everything it changes goes back when you turn it off.
 <table>
   <tr>
     <td width="33%"><img src="docs/images/styles/lamp.gif" alt="Lamp: the window is drawn into its taskbar button like smoke into a lamp"></td>
-    <td width="33%"><img src="docs/images/styles/oc-burn.gif" alt="Burn: the window burns away from the bottom up behind a line of embers"></td>
+    <td width="33%"><img src="docs/images/styles/oc-tiles.gif" alt="Tiles: the window falls apart in tiles from one corner"></td>
     <td width="33%"><img src="docs/images/styles/monitor-hourglass.gif" alt="Hourglass: the window runs out of one screen through a narrow neck and gathers on the other"></td>
   </tr>
   <tr>
     <td><b>Lamp</b>, minimize</td>
-    <td><b>Burn</b>, close</td>
+    <td><b>Tiles</b>, close</td>
     <td><b>Hourglass</b>, to another screen</td>
   </tr>
 </table>
