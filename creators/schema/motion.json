@@ -968,6 +968,190 @@
       ],
       "type": "object"
     },
+    "knobs": {
+      "description": "The settings a subscriber may turn on the item's card, within the author's limits; at most 8. Each names a field of this same file by a JSON pointer and is checked by writing its limits (or each choice) into the file and reading it back: a knob whose field the item does not keep, or whose limits the format would change on reading, refuses the whole item. The person's values are kept beside the item, so an update from its author still arrives.",
+      "items": {
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "type": {
+                  "const": "number"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "min",
+                "max"
+              ]
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "type": {
+                  "const": "colour"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "choices"
+              ]
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "type": {
+                  "const": "choice"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "options"
+              ]
+            }
+          }
+        ],
+        "properties": {
+          "choices": {
+            "description": "colour: the colours offered, #rrggbb.",
+            "items": {
+              "pattern": "^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$",
+              "type": "string"
+            },
+            "maxItems": 12,
+            "minItems": 1,
+            "type": "array"
+          },
+          "default": {
+            "description": "What the author's file has at the path, as the program writes it into a saved file. Ignored on reading.",
+            "type": [
+              "number",
+              "string",
+              "boolean"
+            ]
+          },
+          "id": {
+            "description": "Stable across the item's updates: what the person's value is kept by. Lower-case letters, digits and dashes.",
+            "pattern": "^[a-z0-9-]{1,32}$",
+            "type": "string"
+          },
+          "label": {
+            "description": "What the setting is called on the card. One text, or one per language by Steam's language codes ({\"english\": \"Corners\", \"german\": \"Ecken\"}); a language the program does not speak is left out. Cut to 40 characters.",
+            "oneOf": [
+              {
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "minProperties": 1,
+                "type": "object"
+              }
+            ]
+          },
+          "max": {
+            "description": "number: the most; above min.",
+            "type": "number"
+          },
+          "min": {
+            "description": "number: the least it goes to.",
+            "type": "number"
+          },
+          "options": {
+            "description": "choice: the values offered, each with its label.",
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "label": {
+                  "description": "What the value is called. One text, or one per language by Steam's language codes ({\"english\": \"Corners\", \"german\": \"Ecken\"}); a language the program does not speak is left out. Cut to 40 characters.",
+                  "oneOf": [
+                    {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    {
+                      "additionalProperties": {
+                        "type": "string"
+                      },
+                      "minProperties": 1,
+                      "type": "object"
+                    }
+                  ]
+                },
+                "value": {
+                  "description": "A word of at most 64 characters, a number or a switch.",
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean"
+                  ]
+                }
+              },
+              "required": [
+                "value",
+                "label"
+              ],
+              "type": "object"
+            },
+            "maxItems": 12,
+            "minItems": 2,
+            "type": "array"
+          },
+          "path": {
+            "description": "A JSON pointer (RFC 6901) into this file, such as \"/dock/radius\" or \"/minimize/duration_ms\", at most 10 steps deep. It may not name the item's $schema, version, name, about, knobs, files, hotspots.",
+            "maxLength": 160,
+            "not": {
+              "pattern": "^/(\\$schema|version|name|about|knobs|files|hotspots)(/|$)"
+            },
+            "pattern": "^(/[^/]+){1,10}$",
+            "type": "string"
+          },
+          "step": {
+            "default": 0,
+            "description": "number: the steps it moves on from min, 0 for any value; no larger than max - min.",
+            "minimum": 0,
+            "type": "number"
+          },
+          "type": {
+            "description": "number: a value between min and max; colour: one of choices; choice: one of options. A type this version does not know is left out, not the item.",
+            "enum": [
+              "number",
+              "colour",
+              "choice"
+            ],
+            "type": "string"
+          },
+          "unit": {
+            "default": "none",
+            "description": "number: what it counts, written beside it in the person's language.",
+            "enum": [
+              "none",
+              "px",
+              "ms",
+              "percent"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "label",
+          "path",
+          "type"
+        ],
+        "type": "object"
+      },
+      "maxItems": 8,
+      "type": "array"
+    },
     "maximize": {
       "additionalProperties": false,
       "description": "Filling the screen.",

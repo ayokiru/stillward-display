@@ -6,8 +6,9 @@ activities and setups. None of them is code. The program checks every file
 against its format before it uses it, brings each number into its range, and
 refuses a field it does not know with the reason.
 
-You can make all of them in the program itself, where each library has an
-editor, and publish them to the Steam Workshop from there. The files below are
+You can make most of them in the program itself, where the libraries have
+editors and studios, and publish them to the Steam Workshop from there. Icon
+sets are drawn elsewhere and imported. The files below are
 for making them by hand or from a script.
 
 ## The formats
@@ -20,8 +21,8 @@ for making them by hand or from a script.
 | Pointer set | `scheme.json` beside its pointers | [`schema/pointers.json`](schema/pointers.json) |
 | Pointer studio document | `studio.json` beside a set's `scheme.json` | [`schema/pointer-studio.json`](schema/pointer-studio.json) |
 | Icon set | a folder of drawings and its description | [`schema/icons.json`](schema/icons.json) |
-| Island activity | a widget's items for the island's two forms | [`schema/activity.json`](schema/activity.json) |
-| Setup | the items it wears, by Workshop number | [`schema/setup.json`](schema/setup.json) |
+| Island activity | `*.activity.json`, a widget's items for the island's two forms | [`schema/activity.json`](schema/activity.json) |
+| Setup | `setup.json`, the items it wears, by Workshop number | [`schema/setup.json`](schema/setup.json) |
 
 Every format has a page with its fields, ranges and an example beside what
 the program draws from it: [stillwarddisplay.com/creators](https://stillwarddisplay.com/creators/).
@@ -41,6 +42,8 @@ In [`examples/`](examples/):
 - `corner-first.motion.json`: a mesh, the corner nearest the button leading
 - `clean-taskbar.taskbar.json`: a taskbar of islands, with knobs
 - `clock.widget.json`: a widget
+- `focus-timer.activity.json`: an island activity
+- `setup.json`: a setup that wears Workshop items by number
 - `stillward-pointer-template.zip`: seventeen pointers to draw over
 - `stillward-icon-set.zip`: an icon set to start from
 
@@ -60,8 +63,9 @@ In [`examples/`](examples/):
 On the Animations page, **Open a style from a file** adds it and chooses it.
 While Stillward runs, every save to that file updates the style, so the loop is:
 save in your editor, minimize a window. Dropped on the window, a
-`.motion.json` or `.taskbar.json` file joins the library the same way a
-Workshop item does.
+`.motion.json`, `.taskbar.json`, `.activity.json` or `setup.json` file joins
+its library the same way a Workshop item does. The Island and Setups pages
+also have **Open an activity from a file…** and **Open a setup from a file…**.
 
 The program checks a file from the command line without opening a window,
 starting Steam or counting time. It ends with code 0 for a file it takes and 1

@@ -577,45 +577,52 @@
                 "type": "string"
               },
               "glyph": {
-                "enum": [
-                  "play",
-                  "pause",
-                  "stop",
-                  "previous",
-                  "next",
-                  "volume",
-                  "mute",
-                  "clock",
-                  "calendar",
-                  "wifi",
-                  "download",
-                  "upload",
-                  "battery",
-                  "monitor",
-                  "settings",
-                  "home",
-                  "star",
-                  "music",
-                  "video",
-                  "game",
-                  "sun",
-                  "cloud",
-                  "search",
-                  "folder",
-                  "mail",
-                  "person",
-                  "pin",
-                  "stopwatch",
-                  "chart",
-                  "desks",
-                  "power",
-                  "heart",
-                  "switch",
-                  "terminal",
-                  "back",
-                  "forward"
-                ],
-                "type": "string"
+                "oneOf": [
+                  {
+                    "enum": [
+                      "play",
+                      "pause",
+                      "stop",
+                      "previous",
+                      "next",
+                      "volume",
+                      "mute",
+                      "clock",
+                      "calendar",
+                      "wifi",
+                      "download",
+                      "upload",
+                      "battery",
+                      "monitor",
+                      "settings",
+                      "home",
+                      "star",
+                      "music",
+                      "video",
+                      "game",
+                      "sun",
+                      "cloud",
+                      "search",
+                      "folder",
+                      "mail",
+                      "person",
+                      "pin",
+                      "stopwatch",
+                      "chart",
+                      "desks",
+                      "power",
+                      "heart",
+                      "switch",
+                      "terminal",
+                      "back",
+                      "forward"
+                    ],
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
               },
               "opacity": {
                 "maximum": 1,
@@ -639,7 +646,10 @@
               },
               "text": {
                 "maxLength": 60,
-                "type": "string"
+                "type": [
+                  "string",
+                  "null"
+                ]
               },
               "type": {
                 "const": "button"

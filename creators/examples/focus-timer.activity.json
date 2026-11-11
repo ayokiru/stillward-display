@@ -1,0 +1,127 @@
+{
+  "$schema": "https://stillwarddisplay.com/schema/activity.json",
+  "compact": {
+    "leading": {
+      "items": [
+        {
+          "at": [
+            3.0,
+            6.0
+          ],
+          "colour": "accent",
+          "glyph": "stopwatch",
+          "opacity": 1.0,
+          "radius": 0.0,
+          "size": [
+            18.0,
+            18.0
+          ],
+          "type": "glyph"
+        }
+      ],
+      "width": 24.0
+    },
+    "trailing": {
+      "items": [
+        {
+          "align": "end",
+          "at": [
+            0.0,
+            7.0
+          ],
+          "colour": "ink",
+          "font": 12.0,
+          "opacity": 1.0,
+          "radius": 0.0,
+          "size": [
+            44.0,
+            16.0
+          ],
+          "text": "{timer}",
+          "type": "text",
+          "weight": 600
+        }
+      ],
+      "width": 44.0
+    }
+  },
+  "expanded": {
+    "height": 56.0,
+    "items": [
+      {
+        "align": "start",
+        "at": [
+          0.0,
+          2.0
+        ],
+        "colour": "ink",
+        "font": 40.0,
+        "opacity": 1.0,
+        "radius": 0.0,
+        "size": [
+          200.0,
+          52.0
+        ],
+        "text": "{timer}",
+        "type": "text",
+        "weight": 600
+      },
+      {
+        "action": "timer.start:25",
+        "at": [
+          220.0,
+          12.0
+        ],
+        "colour": "ink",
+        "glyph": null,
+        "opacity": 1.0,
+        "radius": 0.0,
+        "size": [
+          40.0,
+          32.0
+        ],
+        "text": "25",
+        "type": "button"
+      },
+      {
+        "action": "timer.pause",
+        "at": [
+          264.0,
+          12.0
+        ],
+        "bare": true,
+        "colour": "ink",
+        "glyph": "pause",
+        "opacity": 1.0,
+        "radius": 0.0,
+        "size": [
+          36.0,
+          32.0
+        ],
+        "text": null,
+        "type": "button"
+      },
+      {
+        "action": "timer.stop",
+        "at": [
+          304.0,
+          12.0
+        ],
+        "bare": true,
+        "colour": "ink",
+        "glyph": "stop",
+        "opacity": 1.0,
+        "radius": 0.0,
+        "size": [
+          36.0,
+          32.0
+        ],
+        "text": null,
+        "type": "button"
+      }
+    ]
+  },
+  "name": "Focus timer",
+  "version": 1,
+  "when": "timer.on"
+}

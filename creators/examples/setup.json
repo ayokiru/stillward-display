@@ -1,0 +1,15 @@
+{
+  "$schema": "https://stillwarddisplay.com/schema/setup.json",
+  "version": 1,
+  "name": "Quiet steel",
+  "motion": {
+    "minimize": { "key": "windows" },
+    "drag": { "key": "none" },
+    "arrange": { "key": "arrange-glide" }
+  },
+  "icons": { "ws": 3828298982 },
+  "theme": "dark",
+  "frame": { "on": true, "level": 2, "colour": "brand", "shade": 0 },
+  "sounds": { "ours": "chimes" },
+  "glass": 60
+}

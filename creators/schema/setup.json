@@ -7,10 +7,12 @@
       "type": "string"
     },
     "accent": {
+      "description": "Windows' accent colour, #rrggbb.",
       "pattern": "^#[0-9a-fA-F]{6}$",
       "type": "string"
     },
     "bar": {
+      "description": "The taskbar look.",
       "oneOf": [
         {
           "properties": {
@@ -28,7 +30,7 @@
         {
           "properties": {
             "key": {
-              "description": "One of the program's own, by its key: windows, none.",
+              "description": "Something the program ships, by its key: windows for Windows' own, none for nothing at all, or a style built into the program. A key of somebody's own library is never carried.",
               "pattern": "^[a-z0-9-]{1,64}$",
               "type": "string"
             }
@@ -41,6 +43,7 @@
       ]
     },
     "frame": {
+      "description": "The outline round the window in front: on or off, how strong (level), its colour (the program's own, Windows' accent, or own with its #rrggbb) and a shade of it.",
       "properties": {
         "colour": {
           "enum": [
@@ -70,11 +73,13 @@
       "type": "object"
     },
     "glass": {
+      "description": "The program's glass, from clear (0) to tinted (100).",
       "maximum": 100,
       "minimum": 0,
       "type": "integer"
     },
     "icons": {
+      "description": "The icon set.",
       "oneOf": [
         {
           "properties": {
@@ -92,7 +97,7 @@
         {
           "properties": {
             "key": {
-              "description": "One of the program's own, by its key: windows, none.",
+              "description": "Something the program ships, by its key: windows for Windows' own, none for nothing at all, or a style built into the program. A key of somebody's own library is never carried.",
               "pattern": "^[a-z0-9-]{1,64}$",
               "type": "string"
             }
@@ -105,6 +110,7 @@
       ]
     },
     "island": {
+      "description": "The island: whether it is on, which of its own things it shows (the clock, what is playing, the volume, the calendar), its clock's face, its size, and the activities on it with which look of each. When it steps aside and how it opens stay the person's.",
       "properties": {
         "activities": {
           "items": {
@@ -132,7 +138,7 @@
                   {
                     "properties": {
                       "key": {
-                        "description": "One of the program's own, by its key: windows, none.",
+                        "description": "Something the program ships, by its key: windows for Windows' own, none for nothing at all, or a style built into the program. A key of somebody's own library is never carried.",
                         "pattern": "^[a-z0-9-]{1,64}$",
                         "type": "string"
                       }
@@ -202,7 +208,7 @@
           {
             "properties": {
               "key": {
-                "description": "One of the program's own, by its key: windows, none.",
+                "description": "Something the program ships, by its key: windows for Windows' own, none for nothing at all, or a style built into the program. A key of somebody's own library is never carried.",
                 "pattern": "^[a-z0-9-]{1,64}$",
                 "type": "string"
               }
@@ -214,7 +220,7 @@
           }
         ]
       },
-      "description": "A window animation style for each moment.",
+      "description": "A window animation style for each moment, by the moment's word.",
       "propertyNames": {
         "enum": [
           "minimize",
@@ -231,11 +237,13 @@
       "type": "object"
     },
     "name": {
+      "description": "What it is called in the library and on the Workshop.",
       "maxLength": 64,
       "minLength": 1,
       "type": "string"
     },
     "pointer": {
+      "description": "The pointer: its set, the set's look (size, tint, edge, shadow, how fast a waiting pointer turns) as the Pointer page writes it, and its effects: a trail, a light round it, sparks, and whether they also show over a window that fills its monitor.",
       "properties": {
         "fx": {
           "properties": {
@@ -275,7 +283,7 @@
             {
               "properties": {
                 "key": {
-                  "description": "One of the program's own, by its key: windows, none.",
+                  "description": "Something the program ships, by its key: windows for Windows' own, none for nothing at all, or a style built into the program. A key of somebody's own library is never carried.",
                   "pattern": "^[a-z0-9-]{1,64}$",
                   "type": "string"
                 }
@@ -291,6 +299,7 @@
       "type": "object"
     },
     "sounds": {
+      "description": "Which of the program's sound families plays for its own moments (ours) and for Windows' sounds (windows). A family's name, never a file.",
       "properties": {
         "ours": {
           "enum": [
@@ -309,12 +318,14 @@
       "type": "object"
     },
     "theme": {
+      "description": "Light or dark, for Windows and the program.",
       "enum": [
         "light",
         "dark"
       ]
     },
     "version": {
+      "description": "The format's version.",
       "maximum": 1,
       "minimum": 1,
       "type": "integer"
@@ -370,7 +381,7 @@
               {
                 "properties": {
                   "key": {
-                    "description": "One of the program's own, by its key: windows, none.",
+                    "description": "Something the program ships, by its key: windows for Windows' own, none for nothing at all, or a style built into the program. A key of somebody's own library is never carried.",
                     "pattern": "^[a-z0-9-]{1,64}$",
                     "type": "string"
                   }
