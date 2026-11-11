@@ -11,6 +11,7 @@
 </p>
 
 <p align="center">
+  <a href="#watch">Watch</a> &nbsp;·&nbsp;
   <a href="#what-it-does">What it does</a> &nbsp;·&nbsp;
   <a href="#animations">Animations</a> &nbsp;·&nbsp;
   <a href="#make-your-own">Make your own</a> &nbsp;·&nbsp;
@@ -19,11 +20,12 @@
   <a href="https://stillwarddisplay.com">Website</a>
 </p>
 
-Stillward Display changes how Windows moves and looks. Pick how a window
-minimizes, opens, closes, snaps or moves to another screen. Put a dock or a
-taskbar of your own at the bottom and an island at the top, change the pointer,
-lay widgets on the wallpaper. Every look can be shared on the Steam Workshop,
-and every one is a file you can make yourself.
+Stillward Display changes how Windows moves and looks, and adds the tools it
+lacks. Pick how a window minimizes, opens, closes, snaps or moves to another
+screen. Put a dock or a taskbar of your own at the bottom and an island at the
+top, change the pointer, lay widgets on the wallpaper, take screenshots and
+record the screen. Every look can be shared on the Steam Workshop, and every
+one is a file you can make yourself.
 
 It works from its own process: no code goes into other programs, and
 everything it changes goes back when you turn it off.
@@ -38,6 +40,24 @@ everything it changes goes back when you turn it off.
     <td><b>Lamp</b>, minimize</td>
     <td><b>Tiles</b>, close</td>
     <td><b>Hourglass</b>, to another screen</td>
+  </tr>
+</table>
+
+## Watch
+
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=_2LeKHrAmWA"><img src="docs/images/films/trailer-2.0.jpg" alt="Play the Stillward Display 2.0 trailer on YouTube" width="100%"></a>
+  <br><sub><b>The 2.0 trailer</b>, recorded live on Windows 11 · 3:17</sub>
+</p>
+
+<table>
+  <tr>
+    <td width="50%"><a href="https://www.youtube.com/watch?v=jo5v3uzeSxU"><img src="docs/images/films/first-trailer.jpg" alt="Play the first trailer on YouTube"></a></td>
+    <td width="50%"><a href="https://www.youtube.com/watch?v=KsagY7wSZ6A"><img src="docs/images/films/multi-monitor-demo.jpg" alt="Play the multi-monitor demo on YouTube"></a></td>
+  </tr>
+  <tr>
+    <td><b>The first trailer</b>: three monitors, set up once · 1:51</td>
+    <td><b>Multi-monitor gaming on Windows</b>, set up once per game · 2:46</td>
   </tr>
 </table>
 
@@ -86,14 +106,45 @@ everything it changes goes back when you turn it off.
     </td>
     <td valign="top">
       <img src="docs/icons/camera.svg" width="28" height="28" alt=""><br>
-      <b>Capture</b><br>
-      Screenshots with marks, a recording that zooms where you click, the last minutes on a key. E-mail addresses and keys cover themselves.
+      <b>Screenshots and recording</b><br>
+      Screenshots with marks, text and QR codes read out of them, a window, an area or the whole desk recorded on separate audio tracks, the last minutes on a key. E-mail addresses and keys cover themselves.
     </td>
     <td valign="top">
       <img src="docs/icons/monitor-cog.svg" width="28" height="28" alt=""><br>
       <b>Presets and desks</b><br>
       Set a program, a project or a game up once: windows on their monitors, the right sound output, the display mode. Close it, and it all goes back.
     </td>
+  </tr>
+</table>
+
+## Recorded live
+
+From the 2.0 trailer: the program on a real Windows 11 desk, at its own speed.
+
+<table>
+  <tr>
+    <td width="50%"><img src="docs/images/live/dock.gif" alt="The dock's size and growth set on the Taskbar page, then a window's preview over its icon"></td>
+    <td width="50%"><img src="docs/images/live/island.gif" alt="The island opens into a clock, a calendar, a note and a timer"></td>
+  </tr>
+  <tr>
+    <td><b>A dock of your own</b>: its size, how far icons grow, a preview of the window</td>
+    <td><b>The island</b>: the time, the calendar, a note, a timer</td>
+  </tr>
+  <tr>
+    <td><img src="docs/images/live/apps.gif" alt="Apps on the Windows key converts units, does a sum and starts a timer"></td>
+    <td><img src="docs/images/live/tabs.gif" alt="One window is held over another, dropped on the strip, and the two share tabs"></td>
+  </tr>
+  <tr>
+    <td><b>Apps on the Windows key</b>: units, sums, a timer, a program</td>
+    <td><b>Tabs for any windows</b>: hold one over another, let go on the strip</td>
+  </tr>
+  <tr>
+    <td><img src="docs/images/live/capture.gif" alt="A screenshot is marked with an arrow, and one press pixelates the email, key and card number in it"></td>
+    <td><img src="docs/images/live/setups.gif" alt="The Setups page: the setup of the week and setups from the Workshop"></td>
+  </tr>
+  <tr>
+    <td><b>A screenshot</b>: marked up, its secrets covered with one press</td>
+    <td><b>Setups</b>: the whole look at once, from the Workshop</td>
   </tr>
 </table>
 
