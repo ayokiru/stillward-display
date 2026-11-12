@@ -8,6 +8,37 @@ Stillward Display is coming soon to Steam.
 [Wishlist it](https://store.steampowered.com/app/5248400/Stillward_Display/) to
 hear the day it comes out.
 
+## 2.0.1395
+
+Uploaded to Steam on 12 November 2026, six days after 2.0.1329. It brings 66 changes: colours of your own for marking up screenshots, clicks you can see in a recording, and a round of fixes from testers' reports.
+
+### Screenshots and recordings
+
+- The ring of tools around a screenshot now has an eyedropper and a palette. The eyedropper takes a colour from anything on the screen. The palette (C) opens a colour wheel: hue around it, saturation out from the middle, brightness on a bar underneath.
+- Any colour, taken with the eyedropper or picked on the wheel, can be saved. Saved colours stay from one capture to the next. They show up in the side panel, in the right-click ring of colours and under the wheel, so the next screenshot starts with them. Up to twelve are kept, and saving a colour that is already saved removes it.
+- Marks on a video are drawn in the same editor, so they get all of this too.
+- Clicks in the video: a new button among the recording's buttons (C), and a switch on the Capture page, put a ring on every click while the recording runs. The rings switch off by themselves when the recording ends. They show in recordings of a screen or an area; a window recorded on its own is captured without them.
+- The recording's buttons now stand above Stillward's own dock and taskbar instead of on them.
+
+### Fixes
+
+- Minimising the last window on a desktop animates again. Before, the window just vanished.
+- A window joining a group of tabs no longer flashes a white plate, in browsers and chat programs too.
+- Windows join as tabs only when you let go of one on a strip of tabs. Moving a window past another's title bar used to join them unasked, and a tab pulled off could snap back. The strip also stays open while the pointer travels up to it.
+- The island's note now does select all, copy, cut and paste, whatever the keyboard layout.
+- The island no longer shows a call for a program that isn't running. A program closed while using the microphone used to stay marked as using it.
+- Files dropped on the island keep its shelf open for a moment, so you see them land.
+- The dock's menus open from the dock, and the dock never sits under a Stillward taskbar.
+- "Put it back" on the Taskbar page brings the Windows taskbar back, and switches off Stillward's dock and bar along with it.
+- The taskbar builder puts a part where you drop it on a bar along the top of the screen.
+- The Apps search field (the Win key) selects, copies and cuts with Ctrl+A, Ctrl+C and Ctrl+X.
+- "As it was" after a setup brings back your own dock size, not the size from the look.
+- A few lists could show internal names instead of words if they were opened before the language had loaded: the widget shelves, the icon sets, the control centre. They show the words now.
+
+### For creators
+
+- Island activities and setups open from a file, or dropped on the window, like the other formats. The [creators' files](https://github.com/ayokiru/stillward-display/tree/main/creators) already follow this.
+
 ## 2.0.1329
 
 Uploaded to Steam on 6 November 2026. The previous public build was 0.9.350, uploaded on 9 October. The last number in the version counts the changes made to the program since its first line of code: 350 then, 1,329 now, so 979 of them landed in these four weeks. In that time the program went from arranging windows and screens for games to reshaping most of the Windows desktop, and the version went from 0.9 to 2.0.
