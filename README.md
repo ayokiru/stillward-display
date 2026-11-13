@@ -46,7 +46,7 @@ everything it changes goes back when you turn it off.
 ## Watch
 
 <p align="center">
-  <a href="https://www.youtube.com/watch?v=_2LeKHrAmWA"><img src="docs/images/films/trailer-2.0.jpg" alt="Play the Stillward Display 2.0 trailer on YouTube" width="100%"></a>
+  <a href="https://www.youtube.com/watch?v=3lIz258b3RU"><img src="docs/images/films/trailer-2.0.jpg" alt="Play the Stillward Display 2.0 trailer on YouTube" width="100%"></a>
   <br><sub><b>The 2.0 trailer</b>, recorded live on Windows 11 · 3:17</sub>
 </p>
 
