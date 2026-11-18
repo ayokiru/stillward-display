@@ -4,9 +4,55 @@ Every build of Stillward Display that goes out on Steam, newest first. Each
 one is also a [release](https://github.com/ayokiru/stillward-display/releases)
 here: choose Watch → Custom → Releases to hear about them.
 
-Stillward Display is coming soon to Steam.
-[Wishlist it](https://store.steampowered.com/app/5248400/Stillward_Display/) to
-hear the day it comes out.
+Stillward Display is out on Steam:
+[get it there](https://store.steampowered.com/app/5248400/Stillward_Display/).
+
+## 2.0.1432
+
+Uploaded to Steam on 18 November 2026, six days after 2.0.1395. It brings 37 changes: a new taskbar look, running programs you can put in your own order, an island note you can edit like any text field, and fixes for shutting down from Stillward's power menu and for live wallpapers under its taskbar.
+
+### Taskbar and dock
+
+- Running programs keep their places. They used to jump ahead every time you switched to one. Now they stay in the order they started, after the pinned ones: a program you start goes to the end, and one you close leaves. Drag a running program over another to swap them, on any bar or the dock.
+- Stillward's taskbar can stand on every screen or on the main screen only, from the Screens row on the Taskbar page. The taskbar builder asks the same: every monitor alike, the main monitor only, or a different bar on the other monitors.
+- The option that slides the dock and the island away now reads "While a window is maximized".
+- A look made in the taskbar builder opens in the builder again, and Keep as a look saves over it.
+- A new look on the Workshop, Steel dock, corners below: the power menu and your desktops in the bottom left corner, your programs on steel in the middle, growing under the pointer, the tray, language, network, volume and notifications in the bottom right, and the top of the screen left free for the island.
+- Workshop pictures of taskbars that run the full width of the screen now show the whole bar. Three islands, Studio, Quiet row and Taskbar on top had a corner cut off.
+- Stillward's taskbar and dock redraw only when something on them changes. A window changing its title or the pointer passing over used to be enough to redraw a strip as wide as the screen, which could make a live wallpaper under it stutter, most of all on a second monitor.
+- If Explorer wasn't ready at sign-in, the dock tries again to hide the Windows taskbar, so the two no longer stay on the screen together.
+- When the Windows key opens Apps while no Stillward taskbar or dock is on, the Now page says so.
+
+### The island
+
+- Calls is a switch of its own on the Island page, off by default. With it off, a program using the microphone or the camera no longer opens the island.
+- Starting a timer opens the island for a moment, with the time in large figures and a ring filling around the timer icon. Then it folds back, and the ring runs down with the time left.
+- The note has a caret. Click to place it, drag to select, double-click to select a word, and use the arrows, Home and End, with Shift to select and Ctrl to move by words. Typing, pasting, Backspace and Delete work at the caret or on the selection, and the four lines shown follow the caret through a longer note.
+- The island's clock takes the typeface of the activity around it.
+- Clicking the player on the island brings the player's window to the front.
+
+### Screenshots
+
+- Saved colours: the cross on a colour under the pointer, or a right-click, removes it, and you can drag colours into your own order.
+- Click the colour's code under the wheel to type one in: #3f4447, #fa0, 63, 68, 71 or rgb(63, 68, 71).
+- Snap to windows on the Capture page can be turned off, and holding Alt turns it off for the moment, so an area can start on top of a window.
+- Esc removes a screenshot pinned over other windows (Ctrl+P) while the pointer is over it.
+
+### New
+
+- Restart in the tray menu, beside Quit. The program closes, puts everything back and comes up again in the tray, without going through Steam.
+- Apps (the Win key) finds Stillward Display itself.
+- The help page links the Discord server, under Send feedback.
+- The Workshop cards of pointer sets show the pointers sharper.
+
+### Fixes
+
+- Restart and Shut down from Stillward's power menu could end in nothing. Putting things back first now takes 15 seconds at most, and if Windows refuses, a card says so with the error code.
+- Restoring a window could flash the whole window before Stillward's animation began, when Windows' own animation had been switched back on behind its back. Stillward now keeps Windows' animation off for as long as one of its own is chosen.
+- The volume keys follow the output you switched to, such as headphones, and no longer the one active when the program started.
+- Widgets and the island's calendar buttons show their icons on Windows 10, where they were empty boxes.
+- The control centre's tile rows on the Taskbar page no longer overlap in a narrow window.
+- The widget editor's Fit enlarges very small cards enough to see them.
 
 ## 2.0.1395
 

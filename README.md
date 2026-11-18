@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <a href="https://store.steampowered.com/app/5248400/Stillward_Display/"><img src="https://img.shields.io/badge/Steam-coming%20soon-a8bdd8?style=flat-square&labelColor=1b222c" alt="Coming soon on Steam"></a>
+  <a href="https://store.steampowered.com/app/5248400/Stillward_Display/"><img src="https://img.shields.io/badge/Steam-out%20now-a8bdd8?style=flat-square&labelColor=1b222c" alt="Out now on Steam"></a>
   <img src="https://img.shields.io/badge/Windows-10%20%7C%2011-a8bdd8?style=flat-square&labelColor=1b222c" alt="Windows 10 and 11">
   <a href="https://steamcommunity.com/app/5248400/workshop/"><img src="https://img.shields.io/badge/Steam%20Workshop-styles%2C%20looks%2C%20setups-a8bdd8?style=flat-square&labelColor=1b222c" alt="Steam Workshop"></a>
   <img src="https://img.shields.io/badge/languages-30-a8bdd8?style=flat-square&labelColor=1b222c" alt="30 languages">
@@ -305,9 +305,8 @@ Show what you made in [Discussions](https://github.com/ayokiru/stillward-display
 
 ## Get it
 
-Stillward Display is coming soon on Steam, for Windows 10 and 11, in 30
-languages. [Wishlist it](https://store.steampowered.com/app/5248400/Stillward_Display/)
-to hear the day it comes out.
+Stillward Display is out on Steam, for Windows 10 and 11, in 30 languages.
+[Get it on Steam](https://store.steampowered.com/app/5248400/Stillward_Display/).
 
 ## Updates
 
