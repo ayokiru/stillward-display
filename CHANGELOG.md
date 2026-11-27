@@ -7,6 +7,59 @@ here: choose Watch → Custom → Releases to hear about them.
 Stillward Display is out on Steam:
 [get it there](https://store.steampowered.com/app/5248400/Stillward_Display/).
 
+## 2.0.1457
+
+Uploaded to Steam on 27 November 2026, nine days after 2.0.1432. It brings 25 changes: one button that puts plain Windows back, presets that switch monitors off and clear the desk, a separate taskbar on each monitor, chat programs as tabs on one screen, PrintScreen for capture keys, and a fix for shutting down from Stillward's power menu.
+
+### Getting back to plain Windows
+
+- How this works has a new row under Everything goes back: Put Windows back as it was. One press turns off every Stillward look and gives Windows back its own taskbar, pointer, animations, colours, wallpaper and desktop icons, so you don't have to uninstall anything to get plain Windows. Your presets, desks, widgets and shelves stay. There is no Undo for this, so it asks you to press a second time.
+- How this works also has a new group, When a change is kept, which explains when a change stays. A look you click is applied at once, with Undo for a few seconds. An editor shows what you're making on the desktop as a try, and closing it without saving puts back what was there. A monitor setting asks Keep changes or Revert, and goes back by itself after 15 seconds.
+
+### Presets
+
+- The preset editor has a new option, Switch these monitors off. Click the monitors that should go dark while the preset runs. A monitor shared with another PC then shows that PC. A preset never switches off every monitor, and if the main monitor goes dark, the next one left on becomes the main one.
+- Another new option, Put every other window away, sends the windows of programs the preset doesn't name down to the taskbar while it runs. They come back when it ends.
+- If a preset started by its key is running and you press another preset's key, Stillward now ends the first and starts the second. It used to say the first one was busy. The first is put back completely before the second starts, and the log names both: "Work" has ended. "Meeting" started.
+- A preset that had switched a monitor off and put windows away said "nothing to undo" when it ended, even though the monitor and the windows came back. It now says what came back.
+
+### Taskbar
+
+- The Taskbar page has a new switch, Each monitor's bar shows its own windows. With it on, a window shows only on the bar of the monitor it's on. It's off by default.
+- Right-click a program on a bar and choose Keep on this monitor's bar. It stays pinned on that monitor, and shows on the other bars only while it has a window there. Show on every monitor's bar undoes it. Stillward remembers this per monitor, so it still works after you rearrange your monitors.
+- After a monitor was switched off, two Stillward bars could end up stacked on the same screen. Each monitor now gets one bar, and a monitor that comes back gets its own bar back.
+- Saving a taskbar look no longer makes the Windows taskbar flash for a moment.
+- Alt+Tab no longer sends Stillward's bars, dock and island off the screen and back.
+- Stillward's own windows kept swapping places with each other, more than a thousand times in a few seconds, and each swap made Windows redraw the screen, even under a live wallpaper. They now stay in order.
+
+### Windows
+
+- A rule under Windows that open in their place can now have A tab with the others sent here. Every window the rule places joins the windows already there as a tab, so all your chat programs can share one window on one monitor. Turning it on also gathers the windows already open at that place.
+
+### Capture
+
+- You can now set PrintScreen as a capture key, on its own or with Ctrl, Alt or Shift. Before, the Capture page didn't notice PrintScreen while you recorded a key, and a combination Stillward already used took a screenshot instead of being recorded.
+- On Windows 11, PrintScreen on its own opens Windows' own screen capture until you turn that off in Windows. While you're recording a capture key, the row says so and has an Open keyboard settings button. The switch is on that page, a little further down.
+- PageUp and PageDown can now be used in shortcuts, together with Ctrl, Alt or Win.
+- On the colour ring you can remove or move any colour, including the ones you didn't save, and an arrow brings the original ring back. The colour code field opens with the code selected, and Ctrl+A, C, X and V work in it.
+
+### Island and timer
+
+- The timer's key no longer freezes the program, which also stopped the island.
+- A timer started while you're recording now shows on the island for a moment. Before, the recording hid it.
+- Clicking the timer on the island opens the timer. It used to open a recording that was running at the same time.
+- A timer started from an island opens that island, not the islands on the other monitors.
+- An island that moves to music now uses about a third less CPU.
+
+### Widgets and shelves
+
+- A widget you drag without holding it first doesn't move, so it can't be moved by accident. It now tells you for two seconds: Hold it a moment, then move it.
+- The Shelves page now says what a shelf is for: a folder you use all day, kept open on the desktop under your windows.
+
+### Fixes
+
+- Shut down and Restart from Stillward's power menu could do nothing on some PCs, with no message. Stillward now uses fast startup only when the PC can actually hibernate. If Windows accepts the request but hasn't started shutting down 20 seconds later, Stillward asks Windows a second way. If that doesn't work either, a card tells you, and you can still shut down from Windows' Start.
+
 ## 2.0.1432
 
 Uploaded to Steam on 18 November 2026, six days after 2.0.1395. It brings 37 changes: a new taskbar look, running programs you can put in your own order, an island note you can edit like any text field, and fixes for shutting down from Stillward's power menu and for live wallpapers under its taskbar.
